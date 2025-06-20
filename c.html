@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mitől Prémium Minőségű a Termékünk - Black Gold Aronia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #111827; /* Dark background as a fallback */
+        }
+        .section-box {
+            background-color: rgba(31, 41, 55, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Full-page background styles */
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1.5s ease-in-out;
+        }
+        #background-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 24, 39, 0.7); /* A dark overlay matching the theme */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-slate-100">
+
+    <div id="background-container">
+        <img src="1.webp" class="background-image opacity-100" alt="Arónia háttérkép 1">
+        <img src="2.webp" class="background-image opacity-0" alt="Arónia háttérkép 2">
+        <img src="3.webp" class="background-image opacity-0" alt="Arónia háttérkép 3">
+        <img src="4.webp" class="background-image opacity-0" alt="Arónia háttérkép 4">
+    </div>
+
+    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="p1.jpg" alt="Black Gold Aronia Logo" class="h-10 w-auto">
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#piac" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Piac és Potenciál</a>
+                <a href="index.html#minoseg" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Garantált Minőség</a>
+                <a href="index.html#partnerség" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Partnerség</a>
+                <a href="index.html#kapcsolat" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Kapcsolat</a>
+            </div>
+            <div class="flex space-x-2">
+                <button class="lang-button bg-violet-600 hover:bg-violet-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="hu">HU</button>
+                <button class="lang-button bg-slate-600 hover:bg-slate-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="en">EN</button>
+                <button class="lang-button bg-slate-600 hover:bg-slate-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="de">DE</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="section-box p-6 md:p-10 rounded-2xl shadow-xl">
+                <h1 id="c-title" class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Mitől prémium minőségű a termékünk?</h1>
+                
+                <div class="text-slate-300 space-y-6 text-lg text-justify leading-relaxed">
+                    <p id="c-p1">Az általunk forgalmazott termék egyediségét a szüretelési időpont, a préselési eljárás, és a legmagasabb minőségű csomagolástechnika adja.</p>
+                    <p id="c-p2">Rendkívül fontosnak tartjuk, hogy a termékünk semmilyen más gyümölcslével, vagy bármilyen más anyaggal (víz, cukor, tartósítószer) nincs hígítva. A termékünk 100%-ban csak aróniát tartalmaz. Ezáltal a rendkívüli hatékonysága is garantált!</p>
+                    <p id="c-p3">A magyar piacon ez a termék egyedülálló, sehol máshol nem kapható! Minden évben a legkiválóbb minőségű termést vásároljuk fel egyenesen a lengyelországi gazdáktól. A szüretelési időpontot minden évben a legkorszerűbb mérőműszerekkel határozzuk meg, amely garantálja a kiemelkedő ízvilágot és a legmagasabb beltartalmi értéket. Az ültetvények BIO minősítéssel rendelkeznek. A préselés a legkorszerűbb, rozsdamentes acélból készült gépekkel történik, a feldolgozás során a lé nem érintkezik levegővel. Ezt követően egy speciális pasztörizálási eljárás után kerül a legmagasabb minőségű csomagolásba.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const translations = {
+        'hu': {
+            'c-title': 'Mitől prémium minőségű a termékünk?',
+            'c-p1': 'Az általunk forgalmazott termék egyediségét a szüretelési időpont, a préselési eljárás, és a legmagasabb minőségű csomagolástechnika adja.',
+            'c-p2': 'Rendkívül fontosnak tartjuk, hogy a termékünk semmilyen más gyümölcslével, vagy bármilyen más anyaggal (víz, cukor, tartósítószer) nincs hígítva. A termékünk 100%-ban csak aróniát tartalmaz. Ezáltal a rendkívüli hatékonysága is garantált!',
+            'c-p3': 'A magyar piacon ez a termék egyedülálló, sehol máshol nem kapható! Minden évben a legkiválóbb minőségű termést vásároljuk fel egyenesen a lengyelországi gazdáktól. A szüretelési időpontot minden évben a legkorszerűbb mérőműszerekkel határozzuk meg, amely garantálja a kiemelkedő ízvilágot és a legmagasabb beltartalmi értéket. Az ültetvények BIO minősítéssel rendelkeznek. A préselés a legkorszerűbb, rozsdamentes acélból készült gépekkel történik, a feldolgozás során a lé nem érintkezik levegővel. Ezt követően egy speciális pasztörizálási eljárás után kerül a legmagasabb minőségű csomagolásba.'
+        },
+        'en': {
+            'c-title': 'What makes our product premium quality?',
+            'c-p1': 'The uniqueness of the product we sell is given by the harvest time, the pressing process, and the highest quality packaging technology.',
+            'c-p2': 'We consider it extremely important that our product is not diluted with any other fruit juice or any other substance (water, sugar, preservatives). Our product contains 100% aronia only. This guarantees its extraordinary effectiveness!',
+            'c-p3': 'This product is unique in the Hungarian market, it is not available anywhere else! Every year we buy the highest quality crop directly from farmers in Poland. The harvest date is determined each year with the most modern measuring instruments, which guarantees an outstanding taste and the highest content value. The plantations have BIO certification. The pressing is done with the most modern machines made of stainless steel, during the processing the juice does not come into contact with air. This is followed by a special pasteurization process before it is placed in the highest quality packaging.'
+        },
+        'de': {
+            'c-title': 'Was macht unser Produkt zu Premium-Qualität?',
+            'c-p1': 'Die Einzigartigkeit des von uns verkauften Produkts ergibt sich aus dem Erntezeitpunkt, dem Pressverfahren und der hochwertigsten Verpackungstechnologie.',
+            'c-p2': 'Wir legen größten Wert darauf, dass unser Produkt nicht mit anderem Fruchtsaft oder einer anderen Substanz (Wasser, Zucker, Konservierungsstoffe) verdünnt wird. Unser Produkt enthält nur 100% Aronia. Dies garantiert seine außergewöhnliche Wirksamkeit!',
+            'c-p3': 'Dieses Produkt ist auf dem ungarischen Markt einzigartig, es ist nirgendwo anders erhältlich! Jedes Jahr kaufen wir die hochwertigste Ernte direkt von den Bauern in Polen. Der Erntetermin wird jedes Jahr mit modernsten Messgeräten bestimmt, was einen hervorragenden Geschmack und den höchsten Inhaltswert garantiert. Die Plantagen sind BIO-zertifiziert. Das Pressen erfolgt mit modernsten Maschinen aus Edelstahl, während der Verarbeitung kommt der Saft nicht mit Luft in Berührung. Anschließend erfolgt ein spezielles Pasteurisierungsverfahren, bevor es in die hochwertigste Verpackung gelangt.'
+        }
+    };
+
+    function updateContent(lang) {
+        document.documentElement.lang = lang;
+        for (const key in translations[lang]) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.innerHTML = translations[lang][key];
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const langButtons = document.querySelectorAll('.lang-button');
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                langButtons.forEach(btn => {
+                    btn.classList.remove('bg-violet-600', 'hover:bg-violet-700');
+                    btn.classList.add('bg-slate-600', 'hover:bg-slate-700');
+                });
+                button.classList.remove('bg-slate-600', 'hover:bg-slate-700');
+                button.classList.add('bg-violet-600', 'hover:bg-violet-700');
+                updateContent(button.dataset.lang);
+            });
+        });
+
+        // Full page background image cycling logic
+        const bgImages = document.querySelectorAll('.background-image');
+        let currentBgIndex = 0;
+        setInterval(() => {
+            bgImages[currentBgIndex].style.opacity = '0';
+            currentBgIndex = (currentBgIndex + 1) % bgImages.length;
+            bgImages[currentBgIndex].style.opacity = '1';
+        }, 5000);
+
+        updateContent('hu');
+    });
+    </script>
+</body>
+</html>

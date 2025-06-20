@@ -9,18 +9,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Aronia Dusk -->
-    <!-- Application Structure Plan: A single-page narrative application designed to guide a potential business partner through a compelling story. It starts with the broad market opportunity (Piac és Potenciál), presents Aronia as the perfect solution (A Mi Megoldásunk), builds trust with detailed proof of quality (Megalkuvás Nélküli Minőség), addresses practical supply concerns (Készlet és Partnerség), and ends with a clear call to action (Kapcsolat). This top-down, narrative flow is more persuasive and engaging than a simple data dump, making complex information digestible and building a case for partnership step-by-step. -->
-    <!-- Visualization & Content Choices:
-    - European Organic Market: Goal: Persuade. Viz: Line Chart (Chart.js). Interaction: Hover tooltips. Justification: Visually demonstrates the strong growth trend, establishing the business case immediately.
-    - Health Benefits: Goal: Inform. Viz: Icon-based grid (HTML/Tailwind). Interaction: Hover effects. Justification: Breaks down benefits into easily scannable, visually appealing points.
-    - Quality Guarantees: Goal: Build trust. Viz: Interactive table/diagram (HTML/Tailwind/JS). Interaction: Click to reveal details. Justification: Organizes dense certification data into an explorable format, highlighting transparency and commitment to quality.
-    - Supply Metrics: Goal: Assure. Viz: Animated counters (JS). Interaction: On-scroll animation. Justification: Presents key numbers (stock levels) in a dynamic, impactful way, conveying readiness and capacity.
-    CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #333333; /* Slightly darker background */
+            background-color: #111827; /* Dark background as a fallback */
         }
         .chart-container {
             position: relative;
@@ -41,23 +33,47 @@
             color: #a78bfa; /* Lighter violet for active link */
         }
         .section-box {
-            background-color: rgba(64, 64, 64, 0.8); /* Darker, transparent box for sections */
-            backdrop-filter: blur(5px);
+            background-color: rgba(31, 41, 55, 0.8); /* Darker, transparent box for sections */
+            backdrop-filter: blur(8px);
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        .hero-background-image {
+        /* Full-page background styles */
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+        }
+        .background-image {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            opacity: 0.3; /* Initial opacity */
-            transition: opacity 1s ease-in-out; /* Smooth transition for fade */
+            transition: opacity 1.5s ease-in-out;
+        }
+        #background-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 24, 39, 0.7); /* A dark overlay matching the theme */
         }
     </style>
 </head>
-<body class="bg-gray-800 text-slate-100">
+<body class="bg-gray-900 text-slate-100">
+
+    <div id="background-container">
+        <img src="1.webp" class="background-image opacity-100" alt="Arónia háttérkép 1">
+        <img src="2.webp" class="background-image opacity-0" alt="Arónia háttérkép 2">
+        <img src="3.webp" class="background-image opacity-0" alt="Arónia háttérkép 3">
+        <img src="4.webp" class="background-image opacity-0" alt="Arónia háttérkép 4">
+    </div>
 
     <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 shadow-md">
         <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
@@ -79,12 +95,11 @@
     </header>
 
     <main>
-        <section id="hero" class="relative text-center py-20 md:py-32 bg-gray-900 overflow-hidden">
-            <img id="heroBackground" src="1.webp" alt="Aronia Háttér" class="hero-background-image">
+        <section id="hero" class="relative text-center py-20 md:py-32 overflow-hidden">
             <div class="container mx-auto px-6 relative z-10">
-                <h1 class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">Partnerség a Prémium Magyar Aróniáért</h1>
-                <p class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8">Fedezze fel a lehetőséget egy hosszú távú, sikeres együttműködésre egy bizonyítottan tiszta, tanúsítványokkal rendelkező, 100% bio arónia termékkel.</p>
-                <a href="#piac" class="bg-violet-700 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-violet-800 transition-transform hover:scale-105 shadow-lg">Ismerje meg a lehetőséget</a>
+                <h1 id="hero-title" class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">Partnerség a Prémium Magyar Aróniáért</h1>
+                <p id="hero-subtitle" class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8">Fedezze fel a lehetőséget egy hosszú távú, sikeres együttműködésre egy bizonyítottan tiszta, tanúsítványokkal rendelkező, 100% bio arónia termékkel.</p>
+                <a id="hero-cta" href="#piac" class="bg-violet-700 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-violet-800 transition-transform hover:scale-105 shadow-lg">Ismerje meg a lehetőséget</a>
             </div>
         </section>
 
@@ -92,32 +107,33 @@
             <div class="container mx-auto px-6">
                 <div class="section-box p-6 md:p-10 rounded-2xl shadow-xl">
                     <div class="text-center max-w-3xl mx-auto mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Piac és Potenciál: Lépjen be egy Virágzó Szekcióba</h2>
-                        <p class="text-slate-300">Az európai bio élelmiszerpiac exponenciális növekedés előtt áll, melyet az egészségtudatos fogyasztói magatartás és a fenntarthatóság iránti elkötelezettség vezérel. Az arónia, mint szuperélelmiszer, tökéletesen illeszkedik ebbe a trendbe, páratlan lehetőséget kínálva partnereink számára.</p>
+                        <h2 id="piac-title" class="text-3xl md:text-4xl font-bold text-white mb-4">Piac és Potenciál: Lépjen be egy Virágzó Szekcióba</h2>
+                        <p id="piac-text" class="text-slate-300">Az európai bio élelmiszerpiac exponenciális növekedés előtt áll, melyet az egészségtudatos fogyasztói magatartás és a fenntarthatóság iránti elkötelezettség vezérel. Az arónia, mint szuperélelmiszer, tökéletesen illeszkedik ebbe a trendbe, páratlan lehetőséget kínálva partnereink számára.</p>
                     </div>
                     
-                    <div class="bg-gray-700 p-6 md:p-8 rounded-2xl shadow-lg">
-                        <h3 class="text-xl font-bold text-center mb-4">Az Európai Bio Élelmiszerpiac Várható Növekedése (Milliárd USD)</h3>
+                    <div class="bg-gray-700/50 p-6 md:p-8 rounded-2xl shadow-lg">
+                        <h3 id="market-chart-title" class="text-xl font-bold text-center mb-4">Az Európai Bio Élelmiszerpiac Várható Növekedése (Milliárd USD)</h3>
                         <div class="chart-container">
                             <canvas id="marketChart"></canvas>
                         </div>
                     </div>
 
                     <div class="mt-16 grid md:grid-cols-3 gap-8 text-center">
-                        <div class="bg-gray-700 p-6 rounded-xl shadow-md">
+                        <div class="bg-gray-700/50 p-6 rounded-xl shadow-md">
                             <div class="text-4xl text-violet-400 mb-3">📈</div>
-                            <h4 class="text-lg font-bold mb-2">Fokozott Egészségtudatosság</h4>
-                            <p class="text-sm text-slate-300">A fogyasztók aktívan keresik a funkcionális, egészségügyi előnyökkel járó termékeket.</p>
+                            <h4 id="health-consciousness-title" class="text-lg font-bold mb-2">Fokozott Egészségtudatosság</h4>
+                            <p id="health-consciousness-text" class="text-sm text-slate-300">A fogyasztók aktívan keresik a funkcionális, egészségügyi előnyökkel járó termékeket.</p>
                         </div>
-                        <div class="bg-gray-700 p-6 rounded-xl shadow-md">
+                        <div class="bg-gray-700/50 p-6 rounded-xl shadow-md">
                             <div class="text-4xl text-violet-400 mb-3">🌿</div>
-                            <h4 class="text-lg font-bold mb-2">Fenntarthatósági Igény</h4>
-                            <p class="text-sm text-slate-300">Növekvő preferencia a bio, etikusan előállított termékek iránt.</p>
+                            <h4 id="sustainability-demand-title" class="text-lg font-bold mb-2">Fenntarthatósági Igény</h4>
+                            <p id="sustainability-demand-text" class="text-sm text-slate-300">Növekvő preferencia a bio, etikusan előállított termékek iránt.</p>
                         </div>
-                        <div class="bg-gray-700 p-6 rounded-xl shadow-md">
-                            <div class="text-4xl text-violet-400 mb-3">🍇</div>
-                            <h4 class="text-lg font-bold mb-2">Arónia: A Szuperélelmiszer</h4>
-                            <p class="text-sm text-slate-300">Magas antioxidáns-tartalma révén tökéletes válasz a piaci igényekre.</p>
+                        <div class="bg-gray-700/50 p-6 rounded-xl shadow-md flex flex-col items-center">
+                            <img src="p1.jpg" alt="Aronia Ikon" class="h-12 w-auto mb-3">
+                            <h4 id="aronia-superfood-title" class="text-lg font-bold mb-2">Arónia: A Szuperélelmiszer</h4>
+                            <p id="aronia-superfood-text" class="text-sm text-slate-300">Magas antioxidáns-tartalma révén tökéletes válasz a piaci igényekre.</p>
+                            <a href="b.html" target="_blank" class="mt-4 bg-violet-600 text-white font-bold py-2 px-4 rounded-lg text-sm hover:bg-violet-700 transition-transform hover:scale-105 shadow-md" id="superfood-button">Tudj meg többet</a>
                         </div>
                     </div>
                 </div>
@@ -128,35 +144,32 @@
             <div class="container mx-auto px-6">
                 <div class="section-box p-6 md:p-10 rounded-2xl shadow-xl">
                     <div class="text-center max-w-3xl mx-auto mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Megalkuvás Nélküli Minőség és Tisztaság</h2>
-                        <p class="text-slate-300">A Black Gold Aronia elkötelezett a legmagasabb minőségi sztenderdek mellett. Termékeink tisztaságát és hitelességét rangos tanúsítványok és független laboratóriumi vizsgálatok garantálják, megkülönböztetve minket a piacon gyakori hamisítványoktól.</p>
+                        <h2 id="minoseg-title" class="text-3xl md:text-4xl font-bold text-white mb-4">Megalkuvás Nélküli Minőség és Tisztaság</h2>
+                        <p id="minoseg-text" class="text-slate-300">A Black Gold Aronia elkötelezett a legmagasabb minőségi sztenderdek mellett. Termékeink tisztaságát és hitelességét rangos tanúsítványok és független laboratóriumi vizsgálatok garantálják, megkülönböztetve minket a piacon gyakori hamisítványoktól.</p>
+                         <a href="c.html" target="_blank" class="mt-6 inline-block bg-violet-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-violet-800 transition-transform hover:scale-105 shadow-lg" id="quality-button">Tudjon meg többet</a>
                     </div>
                     
-                    <div class="bg-gray-700 p-6 md:p-10 rounded-2xl border border-slate-700">
+                    <div class="bg-gray-700/50 p-6 md:p-10 rounded-2xl border border-slate-700">
                         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-violet-500 hover:shadow-xl transition-shadow">
-                                <h4 class="font-bold text-lg mb-2">100% BIO Minősítés</h4>
-                                <p class="text-sm text-slate-300">Szigorú organikus gazdálkodási és feldolgozási szabványok betartása.</p>
+                                <h4 id="bio-certification-title" class="font-bold text-lg mb-2">100% BIO Minősítés</h4>
+                                <p id="bio-certification-text" class="text-sm text-slate-300">Szigorú organikus gazdálkodási és feldolgozási szabványok betartása.</p>
                             </div>
                             <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-violet-500 hover:shadow-xl transition-shadow">
-                                <h4 class="font-bold text-lg mb-2">Nehézfémmentes</h4>
-                                <p class="text-sm text-slate-300">Garantáltan mentes a káros nehézfém-szennyeződésektől.</p>
+                                <h4 id="heavy-metal-free-title" class="font-bold text-lg mb-2">Nehézfémmentes</h4>
+                                <p id="heavy-metal-free-text" class="text-sm text-slate-300">Garantáltan mentes a káros nehézfém-szennyeződésektől.</p>
                             </div>
                             <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-violet-500 hover:shadow-xl transition-shadow">
-                                <h4 class="font-bold text-lg mb-2">"Patykin" Laborvizsgálat</h4>
-                                <p class="text-sm text-slate-300">Független teszt igazolja a 100%-os aróniatartalmat, kizárva a hígítást.</p>
+                                <h4 id="patykin-test-title" class="font-bold text-lg mb-2">Laborvizsgálat</h4>
+                                <p id="patykin-test-text" class="text-sm text-slate-300">Független teszt igazolja a 100%-os aróniatartalmat, kizárva a hígítást.</p>
                             </div>
                             <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-violet-500 hover:shadow-xl transition-shadow">
-                                <h4 class="font-bold text-lg mb-2">"MAGYARANY ERMÉS"</h4>
-                                <p class="text-sm text-slate-300">Kiemelkedő magyar minőséget és eredetet tanúsító díj.</p>
+                                <h4 id="magyarany-ermes-title" class="font-bold text-lg mb-2">NAGYARANYÉRMES 2021-2022-2023</h4>
+                                <p id="magyarany-ermes-text" class="text-sm text-slate-300">Nagyaranyérmes díj győztese a termékünk 2021, 2022, 2023 -as Nemzetközi Agrár Expo-n is a legjobbnak bizonyúltunk.</p>
                             </div>
                             <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-violet-500 hover:shadow-xl transition-shadow">
-                                <h4 class="font-bold text-lg mb-2">ISNORMAN (2021-2023)</h4>
-                                <p class="text-sm text-slate-300">Több éven át tartó, folyamatosan magas színvonalat igazoló minősítés.</p>
-                            </div>
-                            <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-violet-500 hover:shadow-xl transition-shadow">
-                                <h4 class="font-bold text-lg mb-2">Patulin-mentesség</h4>
-                                <p class="text-sm text-slate-300">A szigorú ellenőrzés garantálja a káros anyagoktól mentes, biztonságos terméket.</p>
+                                <h4 id="patulin-free-title" class="font-bold text-lg mb-2">Patulin-mentesség</h4>
+                                <p id="patulin-free-text" class="text-sm text-slate-300">A szigorú ellenőrzés garantálja a káros anyagoktól mentes, biztonságos terméket.</p>
                             </div>
                         </div>
                     </div>
@@ -168,31 +181,31 @@
             <div class="container mx-auto px-6">
                 <div class="section-box p-6 md:p-10 rounded-2xl shadow-xl">
                     <div class="text-center max-w-3xl mx-auto mb-12">
-                        <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Skálázhatóság és Hosszú Távú Partnerség</h2>
-                        <p class="text-slate-300">Felkészültünk a növekedésre. Jelentős raktárkészlettel és rugalmas, bővíthető termelési kapacitással biztosítjuk a megbízható ellátást, amely egy stabil üzleti kapcsolat alapja. Folyamatosan újítunk, hogy partnereinkkel együtt hódítsuk meg a piacot.</p>
+                        <h2 id="partnerség-title" class="text-3xl md:text-4xl font-bold text-white mb-4">Skálázhatóság és Hosszú Távú Partnerség</h2>
+                        <p id="partnerség-text" class="text-slate-300">Felkészültünk a növekedésre. Jelentős raktárkészlettel és rugalmas, bővíthető termelési kapacitással biztosítjuk a megbízható ellátást, amely egy stabil üzleti kapcsolat alapja. Folyamatosan újítunk, hogy partnereinkkel együtt hódítsuk meg a piacot.</p>
                     </div>
                     
                     <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
-                        <div class="lg:col-span-2 bg-gray-700 p-8 rounded-2xl shadow-lg flex flex-col justify-center">
-                            <h3 class="text-xl font-bold mb-6 text-center">Termelési Kapacitásunk</h3>
+                        <div class="lg:col-span-2 bg-gray-700/50 p-8 rounded-2xl shadow-lg flex flex-col justify-center">
+                            <h3 id="production-capacity-title" class="text-xl font-bold mb-6 text-center">Termelési Kapacitásunk</h3>
                             <div class="flex flex-col md:flex-row justify-around items-center gap-8">
                                 <div class="text-center">
                                     <p class="text-5xl font-bold text-violet-400" data-target="90000">0</p>
-                                    <p class="text-slate-300 mt-2">Liter Jelenlegi Készlet</p>
+                                    <p id="current-stock" class="text-slate-300 mt-2">Liter Jelenlegi Készlet</p>
                                 </div>
                                 <div class="text-center">
                                     <p class="text-5xl font-bold text-violet-400" data-target="180000">0</p>
-                                    <p class="text-slate-300 mt-2">Liter Várható Készlet (szeptember)</p>
+                                    <p id="expected-stock" class="text-slate-300 mt-2">Liter Várható Készlet (szeptember)</p>
                                 </div>
                             </div>
-                            <p class="text-center text-sm text-slate-400 mt-8">Termelésünk a piaci igények szerint évről-évre tovább növelhető.</p>
+                            <p id="production-note" class="text-center text-sm text-slate-400 mt-8">Termelésünk a piaci igények szerint évről-évre tovább növelhető.</p>
                         </div>
 
-                        <div class="bg-violet-900 text-white p-8 rounded-2xl shadow-lg flex flex-col justify-center text-center">
-                            <h3 class="text-xl font-bold mb-4">Termékinnováció</h3>
+                        <div class="bg-violet-900/80 text-white p-8 rounded-2xl shadow-lg flex flex-col justify-center text-center">
+                            <h3 id="product-innovation-title" class="text-xl font-bold mb-4">Termékinnováció</h3>
                             <div class="text-5xl mb-4">🍵</div>
-                            <p class="font-semibold">Új Termék Bevezetése</p>
-                            <p class="mt-2 text-violet-200">Az idei évtől prémium arónia termékünk új, ízletes <span class="font-bold">tea formában</span> is elérhető lesz, bővítve a fogyasztói elérést.</p>
+                            <p id="new-product-intro" class="font-semibold">Új Termék Bevezetése</p>
+                            <p id="new-product-text" class="mt-2 text-violet-200">Az idei évtől por illetve tea formájában is elérhető lesz a termékünk.</p>
                         </div>
                     </div>
                 </div>
@@ -202,35 +215,35 @@
         <section id="kapcsolat" class="py-16 md:py-24">
             <div class="container mx-auto px-6 text-center">
                 <div class="section-box p-6 md:p-10 rounded-2xl shadow-xl">
-                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Lépjünk Kapcsolatba és Építsünk Együtt Sikert!</h2>
-                    <p class="text-slate-300 max-w-2xl mx-auto mb-8">Amennyiben elkötelezettségünk a minőség iránt és a vázolt piaci lehetőség összhangban van az Ön üzleti céljaival, tegyük meg a következő lépést egy gyümölcsöző partnerség felé.</p>
-                    <div class="max-w-md mx-auto bg-gray-700 p-8 rounded-2xl shadow-inner border border-slate-700">
-                        <p class="font-bold text-lg mb-2">ÁRONIA KERESKEDELEM</p>
-                        <p class="text-slate-300">Black Gold Aronia</p>
+                    <h2 id="kapcsolat-title" class="text-3xl md:text-4xl font-bold text-white mb-4">Lépjünk Kapcsolatba és Építsünk Együtt Sikert!</h2>
+                    <p id="kapcsolat-text" class="text-slate-300 max-w-2xl mx-auto mb-8">Amennyiben elkötelezettségünk a minőség iránt és a vázolt piaci lehetőség összhangban van az Ön üzleti céljaival, tegyük meg a következő lépést egy gyümölcsöző partnerség felé.</p>
+                    <div class="max-w-md mx-auto bg-gray-700/50 p-8 rounded-2xl shadow-inner border border-slate-700">
+                        <p id="company-name" class="font-bold text-lg mb-2">ÁRONIA KERESKEDELEM</p>
+                        <p id="brand-name" class="text-slate-300">Black Gold Aronia</p>
                         <a href="http://www.blackgoldaronia.hu" target="_blank" class="block my-4 text-violet-400 font-semibold hover:underline">www.blackgoldaronia.hu</a>
-                        <p class="text-slate-400 text-sm">Kérjük, vegye fel velünk a kapcsolatot a weboldalunkon keresztül vagy kérjen visszahívást egy személyes konzultációra.</p>
-                        <a href="http://www.blackgoldaronia.hu" target="_blank" class="mt-6 inline-block bg-violet-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-violet-800 transition-transform hover:scale-105 shadow-lg">Konzultáció Kérése</a>
+                        <p id="contact-instruction" class="text-slate-400 text-sm">Kérjük, vegye fel velünk a kapcsolatot a weboldalunkon keresztül vagy kérjen visszahívást egy személyes konzultációra.</p>
+                        <a id="consultation-cta" href="http://www.blackgoldaronia.hu" target="_blank" class="mt-6 inline-block bg-violet-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-violet-800 transition-transform hover:scale-105 shadow-lg">Konzultáció Kérése</a>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-gray-900 text-slate-400 py-6">
+    <footer class="bg-gray-900/80 text-slate-400 py-6">
         <div class="container mx-auto px-6 text-center text-sm">
-            <p>&copy; 2025 Black Gold Aronia - Minden jog fenntartva.</p>
+            <p id="footer-copy">&copy; 2025 Black Gold Aronia - Minden jog fenntartva.</p>
             <div class="mt-4 text-xs space-y-1">
-                <p>Elérhetőség: Merci és Krisz 2020 Kft.</p>
-                <p>Székhely címe: 8900. Zalaegerszeg Vasút utca 15.</p>
-                <p>Cégjegyzékszám: 20-09-076877</p>
-                <p>Nyilvántartást vezető cégbíróság: Zalaegerszegi Törvényszék Cégbírósága</p>
-                <p>Adószám: 27319923-2-20</p>
-                <p>Webáruház: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a></p>
-                <p>E-mail: <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a></p>
-                <p>Telefon: <a href="tel:+36302554209" class="text-violet-400 hover:underline">+36 30 255 4209</a></p>
-                <p>Facebook: <a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="text-violet-400 hover:underline">facebook.com/blackgoldaronia</a></p>
+                <p id="footer-contact-company">Elérhetőség: Merci és Krisz 2020 Kft.</p>
+                <p id="footer-address">Székhely címe: 8900. Zalaegerszeg Vasút utca 15.</p>
+                <p id="footer-reg-num">Cégjegyzékszám: 20-09-076877</p>
+                <p id="footer-reg-court">Nyilvántartást vezető cégbíróság: Zalaegerszegi Törvényszék Cégbírósága</p>
+                <p id="footer-tax-num">Adószám: 27319923-2-20</p>
+                <p id="footer-webshop">Webáruház: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a></p>
+                <p id="footer-email">E-mail: <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a></p>
+                <p id="footer-phone">Telefon: <a href="tel:+36302554209" class="text-violet-400 hover:underline">+36 30 255 4209</a></p>
+                <p id="footer-facebook">Facebook: <a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="text-violet-400 hover:underline">facebook.com/blackgoldaronia</a></p>
             </div>
-            <p class="text-slate-500 mt-4">Prémium Magyar Arónia a Hosszú Távú Sikerért.</p>
+            <p id="footer-motto" class="text-slate-500 mt-4">Prémium Magyar Arónia a Hosszú Távú Sikerért.</p>
         </div>
     </footer>
 
@@ -241,7 +254,6 @@
             'nav-minoseg': 'Garantált Minőség',
             'nav-partnerség': 'Partnerség',
             'nav-kapcsolat': 'Kapcsolat',
-            'contact-button': 'Vegye fel a kapcsolatot',
             'hero-title': 'Partnerség a Prémium Magyar Aróniáért',
             'hero-subtitle': 'Fedezze fel a lehetőséget egy hosszú távú, sikeres együttműködésre egy bizonyítottan tiszta, tanúsítványokkal rendelkező, 100% bio arónia termékkel.',
             'hero-cta': 'Ismerje meg a lehetőséget',
@@ -254,18 +266,18 @@
             'sustainability-demand-text': 'Növekvő preferencia a bio, etikusan előállított termékek iránt.',
             'aronia-superfood-title': 'Arónia: A Szuperélelmiszer',
             'aronia-superfood-text': 'Magas antioxidáns-tartalma révén tökéletes válasz a piaci igényekre.',
+            'superfood-button': 'Tudj meg többet',
             'minoseg-title': 'Megalkuvás Nélküli Minőség és Tisztaság',
             'minoseg-text': 'A Black Gold Aronia elkötelezett a legmagasabb minőségi sztenderdek mellett. Termékeink tisztaságát és hitelességét rangos tanúsítványok és független laboratóriumi vizsgálatok garantálják, megkülönböztetve minket a piacon gyakori hamisítványoktól.',
+            'quality-button': 'Tudjon meg többet',
             'bio-certification-title': '100% BIO Minősítés',
             'bio-certification-text': 'Szigorú organikus gazdálkodási és feldolgozási szabványok betartása.',
             'heavy-metal-free-title': 'Nehézfémmentes',
             'heavy-metal-free-text': 'Garantáltan mentes a káros nehézfém-szennyeződésektől.',
-            'patykin-test-title': '"Patykin" Laborvizsgálat',
+            'patykin-test-title': 'Laborvizsgálat',
             'patykin-test-text': 'Független teszt igazolja a 100%-os aróniatartalmat, kizárva a hígítást.',
-            'magyarany-ermes-title': '"MAGYARANY ERMÉS"',
-            'magyarany-ermes-text': 'Kiemelkedő magyar minőséget és eredetet tanúsító díj.',
-            'isnorman-title': 'ISNORMAN (2021-2023)',
-            'isnorman-text': 'Több éven át tartó, folyamatosan magas színvonalat igazoló minősítés.',
+            'magyarany-ermes-title': 'NAGYARANYÉRMES 2021-2022-2023',
+            'magyarany-ermes-text': 'Nagyaranyérmes díj győztese a termékünk 2021, 2022, 2023 -as Nemzetközi Agrár Expo-n is a legjobbnak bizonyúltunk.',
             'patulin-free-title': 'Patulin-mentesség',
             'patulin-free-text': 'A szigorú ellenőrzés garantálja a káros anyagoktól mentes, biztonságos terméket.',
             'partnerség-title': 'Skálázhatóság és Hosszú Távú Partnerség',
@@ -276,7 +288,7 @@
             'production-note': 'Termelésünk a piaci igények szerint évről-évre tovább növelhető.',
             'product-innovation-title': 'Termékinnováció',
             'new-product-intro': 'Új Termék Bevezetése',
-            'new-product-text': 'Az idei évtől prémium arónia termékünk új, ízletes <span class="font-bold">tea formában</span> is elérhető lesz, bővítve a fogyasztói elérést.',
+            'new-product-text': 'Az idei évtől por illetve tea formájában is elérhető lesz a termékünk.',
             'kapcsolat-title': 'Lépjünk Kapcsolatba és Építsünk Együtt Sikert!',
             'kapcsolat-text': 'Amennyiben elkötelezettségünk a minőség iránt és a vázolt piaci lehetőség összhangban van az Ön üzleti céljaival, tegyük meg a következő lépést egy gyümölcsöző partnerség felé.',
             'company-name': 'ÁRONIA KERESKEDELEM',
@@ -296,11 +308,10 @@
             'footer-facebook': 'Facebook:'
         },
         'en': {
-            'nav-piac': 'Market and Potential',
+            'nav-piac': 'Market & Potential',
             'nav-minoseg': 'Guaranteed Quality',
             'nav-partnerség': 'Partnership',
             'nav-kapcsolat': 'Contact',
-            'contact-button': 'Contact Us',
             'hero-title': 'Partnership for Premium Hungarian Aronia',
             'hero-subtitle': 'Discover the opportunity for a long-term, successful collaboration with a proven pure, certified, 100% organic aronia product.',
             'hero-cta': 'Discover the Opportunity',
@@ -313,21 +324,21 @@
             'sustainability-demand-text': 'Growing preference for organic, ethically sourced products.',
             'aronia-superfood-title': 'Aronia: The Superfood',
             'aronia-superfood-text': 'Its high antioxidant content makes it the perfect answer to market demands.',
+            'superfood-button': 'Learn More',
             'minoseg-title': 'Uncompromising Quality and Purity',
             'minoseg-text': 'Black Gold Aronia is committed to the highest quality standards. The purity and authenticity of our products are guaranteed by prestigious certifications and independent laboratory tests, distinguishing us from common counterfeits on the market.',
+            'quality-button': 'Learn More',
             'bio-certification-title': '100% Organic Certification',
             'bio-certification-text': 'Adherence to strict organic farming and processing standards.',
             'heavy-metal-free-title': 'Heavy Metal-Free',
             'heavy-metal-free-text': 'Guaranteed free from harmful heavy metal contamination.',
-            'patykin-test-title': '"Patykin" Lab Test',
+            'patykin-test-title': 'Lab Test',
             'patykin-test-text': 'Independent test confirms 100% aronia content, excluding dilution.',
-            'magyarany-ermes-title': '"MAGYARANY ERMÉS"',
-            'magyarany-ermes-text': 'An award certifying outstanding Hungarian quality and origin.',
-            'isnorman-title': 'ISNORMAN (2021-2023)',
-            'isnorman-text': 'A multi-year certification proving consistently high standards.',
+            'magyarany-ermes-title': 'GRAND GOLD MEDALIST 2021-2022-2023',
+            'magyarany-ermes-text': 'Our product was the winner of the Grand Gold Medal at the International Agricultural Expo in 2021, 2022, and 2023.',
             'patulin-free-title': 'Patulin-Free',
             'patulin-free-text': 'Strict control guarantees a product free from harmful substances and safe.',
-            'partnerség-title': 'Scalability and Long-Term Partnership',
+            'partnerség-title': 'Scalability & Long-Term Partnership',
             'partnerség-text': 'We are prepared for growth. With significant stock and flexible, expandable production capacity, we ensure reliable supply, which is the basis of a stable business relationship. We continuously innovate to conquer the market together with our partners.',
             'production-capacity-title': 'Our Production Capacity',
             'current-stock': 'Liters Current Stock',
@@ -335,8 +346,8 @@
             'production-note': 'Our production can be increased year-on-year according to market demands.',
             'product-innovation-title': 'Product Innovation',
             'new-product-intro': 'New Product Introduction',
-            'new-product-text': 'From this year, our premium aronia product will also be available in a new, delicious <span class="font-bold">tea form</span>, expanding consumer reach.',
-            'kapcsolat-title': 'Let\'s Connect and Build Success Together!',
+            'new-product-text': 'From this year, our product will also be available in powder and tea form.',
+            'kapcsolat-title': 'Let\'s Connect & Build Success Together!',
             'kapcsolat-text': 'If our commitment to quality and the outlined market opportunity align with your business goals, let\'s take the next step towards a fruitful partnership.',
             'company-name': 'ARONIA TRADE',
             'brand-name': 'Black Gold Aronia',
@@ -355,11 +366,10 @@
             'footer-facebook': 'Facebook:'
         },
         'de': {
-            'nav-piac': 'Markt und Potenzial',
+            'nav-piac': 'Markt & Potenzial',
             'nav-minoseg': 'Garantierte Qualität',
             'nav-partnerség': 'Partnerschaft',
             'nav-kapcsolat': 'Kontakt',
-            'contact-button': 'Kontaktieren Sie uns',
             'hero-title': 'Partnerschaft für Premium Ungarische Aronia',
             'hero-subtitle': 'Entdecken Sie die Möglichkeit einer langfristigen, erfolgreichen Zusammenarbeit mit einem nachweislich reinen, zertifizierten, 100% Bio-Aronia-Produkt.',
             'hero-cta': 'Möglichkeit entdecken',
@@ -372,21 +382,21 @@
             'sustainability-demand-text': 'Wachsende Präferenz für biologische, ethisch einwandfreie Produkte.',
             'aronia-superfood-title': 'Aronia: Das Superfood',
             'aronia-superfood-text': 'Sein hoher Antioxidantiengehalt ist die perfekte Antwort auf die Marktanforderungen.',
+            'superfood-button': 'Erfahren Sie mehr',
             'minoseg-title': 'Kompromisslose Qualität und Reinheit',
             'minoseg-text': 'Black Gold Aronia verpflichtet sich zu den höchsten Qualitätsstandards. Die Reinheit und Authentizität unserer Produkte wird durch renommierte Zertifizierungen und unabhängige Labortests garantiert, was uns von gängigen Fälschungen auf dem Markt unterscheidet.',
+            'quality-button': 'Erfahren Sie mehr',
             'bio-certification-title': '100% Bio-Zertifizierung',
             'bio-certification-text': 'Einhaltung strenger Bio-Anbau- und Verarbeitungsstandards.',
             'heavy-metal-free-title': 'Schwermetallfrei',
             'heavy-metal-free-text': 'Garantiert frei von schädlichen Schwermetallverunreinigungen.',
-            'patykin-test-title': '"Patykin" Labortest',
+            'patykin-test-title': 'Labortest',
             'patykin-test-text': 'Unabhängiger Test bestätigt 100% Aronia-Gehalt, Verdünnung ausgeschlossen.',
-            'magyarany-ermes-title': '"MAGYARANY ERMÉS"',
-            'magyarany-ermes-text': 'Eine Auszeichnung, die herausragende ungarische Qualität und Herkunft bescheinigt.',
-            'isnorman-title': 'ISNORMAN (2021-2023)',
-            'isnorman-text': 'Eine mehrjährige Zertifizierung, die konstant hohe Standards belegt.',
+            'magyarany-ermes-title': 'GROSSE GOLDMEDAILLE 2021-2022-2023',
+            'magyarany-ermes-text': 'Unser Produkt war der Gewinner der Grossen Goldmedaille auf der Internationalen Landwirtschaftsmesse in den Jahren 2021, 2022 und 2023.',
             'patulin-free-title': 'Patulin-frei',
             'patulin-free-text': 'Strenge Kontrollen garantieren ein Produkt frei von schädlichen Substanzen und sicher.',
-            'partnerség-title': 'Skalierbarkeit und langfristige Partnerschaft',
+            'partnerség-title': 'Skalierbarkeit & Langfristige Partnerschaft',
             'partnerség-text': 'Wir sind auf Wachstum vorbereitet. Mit erheblichen Lagerbeständen und flexiblen, erweiterbaren Produktionskapazitäten gewährleisten wir eine zuverlässige Versorgung, die die Grundlage einer stabilen Geschäftsbeziehung bildet. Wir innovieren kontinuierlich, um gemeinsam mit unseren Partnern den Markt zu erobern.',
             'production-capacity-title': 'Unsere Produktionskapazität',
             'current-stock': 'Liter aktueller Bestand',
@@ -394,8 +404,8 @@
             'production-note': 'Unsere Produktion kann je nach Marktanforderungen jährlich gesteigert werden.',
             'product-innovation-title': 'Produktinnovation',
             'new-product-intro': 'Einführung eines neuen Produkts',
-            'new-product-text': 'Ab diesem Jahr wird unser Premium-Aronia-Produkt auch in einer neuen, köstlichen <span class="font-bold">Teeform</span> erhältlich sein, wodurch die Reichweite für Verbraucher erweitert wird.',
-            'kapcsolat-title': 'Lassen Sie uns in Kontakt treten und gemeinsam Erfolg aufbauen!',
+            'new-product-text': 'Ab diesem Jahr wird unser Produkt auch in Pulver- und Teeform erhältlich sein.',
+            'kapcsolat-title': 'Vernetzen wir uns & bauen wir gemeinsam Erfolg auf!',
             'kapcsolat-text': 'Wenn unser Engagement für Qualität und die dargelegte Marktchance mit Ihren Geschäftszielen übereinstimmen, lassen Sie uns den nächsten Schritt zu einer fruchtbaren Partnerschaft machen.',
             'company-name': 'ARONIA HANDEL',
             'brand-name': 'Black Gold Aronia',
@@ -420,216 +430,45 @@
 
     function updateContent(lang) {
         currentLang = lang;
-        document.documentElement.lang = lang; // Set HTML lang attribute
+        document.documentElement.lang = lang; 
 
-        // Update navigation links
-        const navPiac = document.querySelector('.nav-link[href="#piac"]');
-        if (navPiac) navPiac.innerText = translations[lang]['nav-piac'];
-        const navMinoseg = document.querySelector('.nav-link[href="#minoseg"]');
-        if (navMinoseg) navMinoseg.innerText = translations[lang]['nav-minoseg'];
-        const navPartnerség = document.querySelector('.nav-link[href="#partnerség"]');
-        if (navPartnerség) navPartnerség.innerText = translations[lang]['nav-partnerség'];
-        const navKapcsolat = document.querySelector('.nav-link[href="#kapcsolat"]');
-        if (navKapcsolat) navKapcsolat.innerText = translations[lang]['nav-kapcsolat'];
+        // Update all elements with an 'id' attribute from the translations object
+        for (const key in translations[lang]) {
+            const element = document.getElementById(key);
+            if (element) {
+                // For links, we might need to handle inner text differently if they contain other elements.
+                // For now, innerHTML works for these simple cases.
+                element.innerHTML = translations[lang][key];
+            }
+        }
         
-        // Specific contact button in header
-        const contactButtonHeader = document.querySelector('a[href="#kapcsolat"].hidden.md\\:block');
-        if (contactButtonHeader) { 
-            contactButtonHeader.innerText = translations[lang]['contact-button'];
-        }
-
-        // Update Hero section
-        const heroSection = document.getElementById('hero');
-        if (heroSection) {
-            const heroTitle = heroSection.querySelector('h1');
-            if (heroTitle) heroTitle.innerText = translations[lang]['hero-title'];
-            const heroSubtitle = heroSection.querySelector('p');
-            if (heroSubtitle) heroSubtitle.innerText = translations[lang]['hero-subtitle'];
-            const heroCta = heroSection.querySelector('a');
-            if (heroCta) heroCta.innerText = translations[lang]['hero-cta'];
-        }
-
-        // Update Piac section
-        const piacSection = document.getElementById('piac');
-        if (piacSection) {
-            const piacH2 = piacSection.querySelector('h2');
-            if (piacH2) piacH2.innerText = translations[lang]['piac-title'];
-            const piacP = piacSection.querySelector('p');
-            if (piacP) piacP.innerText = translations[lang]['piac-text'];
-            const piacH3 = piacSection.querySelector('h3');
-            if (piacH3) piacH3.innerText = translations[lang]['market-chart-title'];
-
-            const piacGridItems = piacSection.querySelectorAll('.grid div');
-            if (piacGridItems[0]) {
-                const h4 = piacGridItems[0].querySelector('h4');
-                const p = piacGridItems[0].querySelector('p');
-                if (h4) h4.innerText = translations[lang]['health-consciousness-title'];
-                if (p) p.innerText = translations[lang]['health-consciousness-text'];
+        // Specific updates for nav links as they don't have IDs
+        const navLinksData = {
+            'nav-piac': 'a[href="#piac"]',
+            'nav-minoseg': 'a[href="#minoseg"]',
+            'nav-partnerség': 'a[href="#partnerség"]',
+            'nav-kapcsolat': 'a[href="#kapcsolat"]'
+        };
+        for(const key in navLinksData) {
+            const element = document.querySelector(navLinksData[key]);
+            if(element && translations[lang][key]) {
+                element.innerText = translations[lang][key];
             }
-            if (piacGridItems[1]) {
-                const h4 = piacGridItems[1].querySelector('h4');
-                const p = piacGridItems[1].querySelector('p');
-                if (h4) h4.innerText = translations[lang]['sustainability-demand-title'];
-                if (p) p.innerText = translations[lang]['sultainability-demand-text'];
-            }
-            if (piacGridItems[2]) {
-                const h4 = piacGridItems[2].querySelector('h4');
-                const p = piacGridItems[2].querySelector('p');
-                if (h4) h4.innerText = translations[lang]['aronia-superfood-title'];
-                if (p) p.innerText = translations[lang]['aronia-superfood-text'];
-            }
-        }
-
-        // Update Minoseg section
-        const minosegSection = document.getElementById('minoseg');
-        if (minosegSection) {
-            const minosegH2 = minosegSection.querySelector('h2');
-            if (minosegH2) minosegH2.innerText = translations[lang]['minoseg-title'];
-            const minosegP = minosegSection.querySelector('p');
-            if (minosegP) minosegP.innerText = translations[lang]['minoseg-text'];
-
-            const minosegGridItems = minosegSection.querySelectorAll('.grid > div');
-            if (minosegGridItems[0]) {
-                const h4 = minosegGridItems[0].querySelector('h4');
-                const p = minosegGridItems[0].querySelector('p');
-                if (h4) h4.innerText = translations[lang]['bio-certification-title'];
-                if (p) p.innerText = translations[lang]['bio-certification-text'];
-            }
-            if (minosegGridItems[1]) {
-                const h4 = minosegGridItems[1].querySelector('h4');
-                const p = minosegGridItems[1].querySelector('p');
-                if (h4) h4.innerText = translations[lang]['heavy-metal-free-title'];
-                if (p) p.innerText = translations[lang]['heavy-metal-free-text'];
-            }
-            if (minosegGridItems[2]) {
-                const h4 = minosegGridItems[2].querySelector('h4');
-                const p = minosegGridItems[2].querySelector('p');
-                if (h4) h4.innerText = translations[lang]['patykin-test-title'];
-                if (p) p.innerText = translations[lang]['patykin-test-text'];
-            }
-            if (minosegGridItems[3]) {
-                const h4 = minosegGridItems[3].querySelector('h4');
-                const p = minosegGridItems[3].querySelector('p');
-                if (h4) h4.innerText = translations[lang]['magyarany-ermes-title'];
-                if (p) p.innerText = translations[lang]['magyarany-ermes-text'];
-            }
-            if (minosegGridItems[4]) {
-                const h4 = minosegGridItems[4].querySelector('h4');
-                const p = minosegGridItems[4].querySelector('p');
-                if (h4) h4.innerText = translations[lang]['isnorman-title'];
-                if (p) p.innerText = translations[lang]['isnorman-text'];
-            }
-            if (minosegGridItems[5]) {
-                const h4 = minosegGridItems[5].querySelector('h4');
-                const p = minosegGridItems[5].querySelector('p');
-                if (h4) h4.innerText = translations[lang]['patulin-free-title'];
-                if (p) p.innerText = translations[lang]['patulin-free-text'];
-            }
-        }
-
-        // Update Partnerség section
-        const partnerségSection = document.getElementById('partnerség');
-        if (partnerségSection) {
-            const partnerségH2 = partnerségSection.querySelector('h2');
-            if (partnerségH2) partnerségH2.innerText = translations[lang]['partnerség-title'];
-            const partnerségP = partnerségSection.querySelector('p');
-            if (partnerségP) partnerségP.innerText = translations[lang]['partnerség-text'];
-
-            const productionCapacityTitle = partnerségSection.querySelector('.lg\\:col-span-2 h3');
-            if (productionCapacityTitle) productionCapacityTitle.innerText = translations[lang]['production-capacity-title'];
-            
-            const currentStockP = partnerségSection.querySelector('.lg\\:col-span-2 .flex .text-center:nth-child(1) p:nth-child(2)');
-            if (currentStockP) currentStockP.innerText = translations[lang]['current-stock'];
-            
-            const expectedStockP = partnerségSection.querySelector('.lg\\:col-span-2 .flex .text-center:nth-child(2) p:nth-child(2)');
-            if (expectedStockP) expectedStockP.innerText = translations[lang]['expected-stock'];
-            
-            const productionNoteP = partnerségSection.querySelector('.lg\\:col-span-2 > p:nth-of-type(1)');
-            if (productionNoteP) productionNoteP.innerText = translations[lang]['production-note'];
-
-            const productInnovationH3 = partnerségSection.querySelector('.bg-violet-900 h3');
-            if (productInnovationH3) productInnovationH3.innerText = translations[lang]['product-innovation-title'];
-            
-            const newProductIntroP = partnerségSection.querySelector('.bg-violet-900 p:nth-of-type(1)');
-            if (newProductIntroP) newProductIntroP.innerText = translations[lang]['new-product-intro'];
-            
-            const newProductTextP = partnerségSection.querySelector('.bg-violet-900 p:nth-of-type(2)');
-            if (newProductTextP) newProductTextP.innerHTML = translations[lang]['new-product-text'];
-        }
-
-        // Update Kapcsolat section
-        const kapcsolatSection = document.getElementById('kapcsolat');
-        if (kapcsolatSection) {
-            const kapcsolatH2 = kapcsolatSection.querySelector('h2');
-            if (kapcsolatH2) kapcsolatH2.innerText = translations[lang]['kapcsolat-title'];
-            const kapcsolatP = kapcsolatSection.querySelector('p');
-            if (kapcsolatP) kapcsolatP.innerText = translations[lang]['kapcsolat-text'];
-
-            const contactDiv = kapcsolatSection.querySelector('.max-w-md');
-            if (contactDiv) {
-                const companyNameP = contactDiv.querySelector('p:nth-child(1)');
-                if (companyNameP) companyNameP.innerText = translations[lang]['company-name'];
-                const brandNameP = contactDiv.querySelector('p:nth-child(2)');
-                if (brandNameP) brandNameP.innerText = translations[lang]['brand-name'];
-                const contactInstructionP = contactDiv.querySelector('p:nth-child(4)');
-                if (contactInstructionP) contactInstructionP.innerText = translations[lang]['contact-instruction'];
-                const consultationCtaA = contactDiv.querySelector('a:last-of-type');
-                if (consultationCtaA) consultationCtaA.innerText = translations[lang]['consultation-cta'];
-            }
-        }
-
-        // Update Footer
-        const footerP1 = document.querySelector('footer p:nth-child(1)');
-        if (footerP1) footerP1.innerText = translations[lang]['footer-copy'];
-        const footerP2 = document.querySelector('footer p:nth-child(2)');
-        if (footerP2) footerP2.innerText = translations[lang]['footer-motto'];
-
-        // Update specific footer contact details
-        const footerContactCompany = document.querySelector('footer .text-xs p:nth-child(1)');
-        if (footerContactCompany) footerContactCompany.innerText = translations[lang]['footer-contact-company'];
-        const footerAddress = document.querySelector('footer .text-xs p:nth-child(2)');
-        if (footerAddress) footerAddress.innerText = translations[lang]['footer-address'];
-        const footerRegNum = document.querySelector('footer .text-xs p:nth-child(3)');
-        if (footerRegNum) footerRegNum.innerText = translations[lang]['footer-reg-num'];
-        const footerRegCourt = document.querySelector('footer .text-xs p:nth-child(4)');
-        if (footerRegCourt) footerRegCourt.innerText = translations[lang]['footer-reg-court'];
-        const footerTaxNum = document.querySelector('footer .text-xs p:nth-child(5)');
-        if (footerTaxNum) footerTaxNum.innerText = translations[lang]['footer-tax-num'];
-        
-        const footerWebshop = document.querySelector('footer .text-xs p:nth-child(6)');
-        if (footerWebshop) footerWebshop.innerHTML = `${translations[lang]['footer-webshop']} <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a>`;
-        
-        const footerEmail = document.querySelector('footer .text-xs p:nth-child(7)');
-        if (footerEmail) footerEmail.innerHTML = `${translations[lang]['footer-email']} <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a>`;
-        
-        const footerPhone = document.querySelector('footer .text-xs p:nth-child(8)');
-        if (footerPhone) footerPhone.innerHTML = `${translations[lang]['footer-phone']} <a href="tel:+36302554209" class="text-violet-400 hover:underline">+36 30 255 4209</a>`;
-        
-        const footerFacebook = document.querySelector('footer .text-xs p:nth-child(9)');
-        if (footerFacebook) footerFacebook.innerHTML = `${translations[lang]['footer-facebook']} <a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="text-violet-400 hover:underline">facebook.com/blackgoldaronia</a>`;
-
-
-        // Update chart labels dynamically, if needed, based on language.
-        if (marketChart) {
-            marketChart.options.scales.y.ticks.callback = function(value, index, values) {
-                return `${value.toFixed(0)} ${lang === 'hu' ? 'Mrd $' : 'Billion $'}`;
-            };
-            marketChart.update();
         }
     }
 
     document.addEventListener('DOMContentLoaded', function () {
         const marketCtx = document.getElementById('marketChart');
-        if (marketCtx) { // Check if canvas element exists
-            marketChart = new Chart(marketCtx.getContext('2d'), { // Assign to global marketChart
+        if (marketCtx) {
+            marketChart = new Chart(marketCtx.getContext('2d'), {
                 type: 'line',
                 data: {
                     labels: ['2023', '2024', '2026', '2028', '2030', '2033'],
                     datasets: [{
                         label: 'Piac Mérete (Milliárd USD)',
                         data: [55.8, 60.87, 75.3, 93.1, 115.2, 146.44],
-                        borderColor: '#a78bfa', /* Lighter violet for line */
-                        backgroundColor: 'rgba(167, 139, 250, 0.1)', /* Lighter transparent violet for fill */
+                        borderColor: '#a78bfa',
+                        backgroundColor: 'rgba(167, 139, 250, 0.1)',
                         fill: true,
                         tension: 0.4
                     }]
@@ -642,12 +481,19 @@
                             display: false
                         },
                         tooltip: {
-                            backgroundColor: '#4a4a4a', /* Darker tooltip background */
+                            backgroundColor: '#374151',
                             titleFont: { weight: 'bold' },
                             bodyFont: { size: 14 },
                             callbacks: {
                                 label: function(context) {
-                                    return ` ${context.parsed.y.toFixed(2)} ${currentLang === 'hu' ? 'Milliárd USD' : 'Billion USD'}`;
+                                    let label = context.dataset.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed.y !== null) {
+                                        label += new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(context.parsed.y) + ' Mrd';
+                                    }
+                                    return label;
                                 }
                             }
                         }
@@ -655,32 +501,25 @@
                     scales: {
                         y: {
                             beginAtZero: false,
-                            grid: {
-                                color: '#555555' /* Darker grid lines */
-                            },
+                            grid: { color: 'rgba(156, 163, 175, 0.2)' },
                             ticks: {
-                               color: '#ffffff', /* White ticks */
-                               callback: function(value, index, values) {
+                               color: '#d1d5db',
+                               callback: function(value) {
                                     return value + ' Mrd $';
                                }
                             }
                         },
                         x: {
-                            grid: {
-                                display: false
-                            },
-                            ticks: {
-                                color: '#ffffff' /* White ticks */
-                            }
+                            grid: { display: false },
+                            ticks: { color: '#d1d5db' }
                         }
                     }
                 }
             });
         }
 
-
         const counters = document.querySelectorAll('[data-target]');
-        const speed = 400;
+        const speed = 400; 
 
         const animateCounter = (counter) => {
             const target = +counter.getAttribute('data-target');
@@ -733,12 +572,13 @@
             navObserver.observe(section);
         });
 
-        // Language switcher logic
         const langButtons = document.querySelectorAll('.lang-button');
         langButtons.forEach(button => {
             button.addEventListener('click', () => {
-                langButtons.forEach(btn => btn.classList.remove('bg-violet-600', 'hover:bg-violet-700', 'text-white'));
-                langButtons.forEach(btn => btn.classList.add('bg-slate-600', 'hover:bg-slate-700', 'text-white'));
+                langButtons.forEach(btn => {
+                    btn.classList.remove('bg-violet-600', 'hover:bg-violet-700');
+                    btn.classList.add('bg-slate-600', 'hover:bg-slate-700');
+                });
 
                 button.classList.remove('bg-slate-600', 'hover:bg-slate-700');
                 button.classList.add('bg-violet-600', 'hover:bg-violet-700');
@@ -747,28 +587,14 @@
             });
         });
 
-        // Background image cycling logic for hero section
-        const heroBackground = document.getElementById('heroBackground');
-        const backgroundImages = ['1.webp', '2.webp', '3.webp'];
-        let currentImageIndex = 0;
+        const bgImages = document.querySelectorAll('.background-image');
+        let currentBgIndex = 0;
+        setInterval(() => {
+            bgImages[currentBgIndex].style.opacity = '0';
+            currentBgIndex = (currentBgIndex + 1) % bgImages.length;
+            bgImages[currentBgIndex].style.opacity = '1';
+        }, 5000);
 
-        function changeHeroBackground() {
-            currentImageIndex = (currentImageIndex + 1) % backgroundImages.length;
-            const nextImage = backgroundImages[currentImageIndex];
-            
-            // Fade out current image
-            heroBackground.style.opacity = '0'; 
-
-            // After fade out, change src and fade in
-            setTimeout(() => {
-                heroBackground.src = nextImage;
-                heroBackground.style.opacity = '0.3'; // Fade in to 30% opacity
-            }, 1000); // Duration of the fade out
-        }
-
-        setInterval(changeHeroBackground, 5000); // Change image every 5 seconds
-
-        // Initialize content with Hungarian
         updateContent('hu');
     });
     </script>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bemutatkozás - Black Gold Aronia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #111827; /* Dark background as a fallback */
+        }
+        .section-box {
+            background-color: rgba(64, 64, 64, 0.8);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        /* Full-page background styles */
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1.5s ease-in-out;
+        }
+        #background-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 24, 39, 0.7); /* A dark overlay matching the theme */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-slate-100">
+
+    <div id="background-container">
+        <img src="1.webp" class="background-image opacity-100" alt="Arónia háttérkép 1">
+        <img src="2.webp" class="background-image opacity-0" alt="Arónia háttérkép 2">
+        <img src="3.webp" class="background-image opacity-0" alt="Arónia háttérkép 3">
+        <img src="4.webp" class="background-image opacity-0" alt="Arónia háttérkép 4">
+    </div>
+
+    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="p1.jpg" alt="Black Gold Aronia Logo" class="h-10 w-auto">
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#piac" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Piac és Potenciál</a>
+                <a href="index.html#minoseg" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Garantált Minőség</a>
+                <a href="index.html#partnerség" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Partnerség</a>
+                <a href="index.html#kapcsolat" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Kapcsolat</a>
+            </div>
+            <div class="flex space-x-2">
+                <button class="lang-button bg-violet-600 hover:bg-violet-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="hu">HU</button>
+                <button class="lang-button bg-slate-600 hover:bg-slate-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="en">EN</button>
+                <button class="lang-button bg-slate-600 hover:bg-slate-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="de">DE</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="section-box p-6 md:p-10 rounded-2xl shadow-xl">
+                <h1 id="b-title" class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Bemutatkozás</h1>
+                
+                <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-12 items-center">
+                    <div class="lg:col-span-2 text-slate-300 space-y-4 text-justify">
+                        <h2 id="b-welcome" class="text-2xl font-semibold text-white text-center mb-6">Tisztelettel üdvözöljük weboldalunkon!</h2>
+                        <p id="b-p1">Mindjárt az elején azzal a fontos információval szeretnénk kezdeni, hogy elsődleges célunknak azt tekintjük, hogy minden kedves érdeklődő/vásárló számára, egy minden részletre kiterjedő hiteles és korrekt tájékoztatást nyújtsunk erről a nagyszerű prémium minőségű bio termékről.</p>
+                        <p id="b-p2">Ebben is szeretnénk eltérni, illetve különbözni azon weboldalaktól, amelyek sajnos sok esetben rendkívül kevés információval látják el a termék iránt érdeklődőket, legyen szó akár az eredetéről, akár a minőségéről stb. Ezekről mi egy közel 4 éve tartó fogyasztói, piackutatói, termesztési, préselés technikai, szüretelési, palackozási tapasztalat alapján jutottunk el egészen a forgalmazásig.</p>
+                        <p id="b-p3">Az évek során rengeteg tapasztalatot gyűjtöttünk annak érdekében, hogy a létező legjobb minőségű arónia préselt levet tudjuk forgalmazni Magyarországon. Az összes itthon forgalmazott arónia levet kipróbáltuk, amelyeknek túlnyomó többsége szinte ihatatlan (pláne önmagában), ez főleg az import termékekre jellemző, de az itthon termesztett és előállított (kézműves) termékek is rendkívül savanyúak.</p>
+                        <p id="b-p4" class="italic text-slate-400">(Ennek okairól beszámolunk)</p>
+                        <p id="b-p5">Rengeteg weboldalon olvasható például, hogy egész évben elérhető, korlátlan mennyiségben, ez meg, hogy lehetséges egy olyan terméknél, ami egy adott évben 1x terem, egy bizonyos mennyiségben???</p>
+                         <p id="b-p6" class="italic text-slate-400">(erről is olvashatnak az oldalunkon)</p>
+                    </div>
+                    <div class="flex justify-center">
+                        <img src="https://bgaronia.cdn.shoprenter.hu/custom/bgaronia/image/cache/w350h601q100np1/spots/DSC_1352-keret.jpg" alt="Bemutatkozó kép" class="rounded-lg shadow-lg max-w-full h-auto">
+                    </div>
+                </div>
+
+                <div class="mt-16 bg-gray-700/50 border border-violet-500/50 p-8 rounded-2xl text-center">
+                    <h3 id="b-important-title" class="text-2xl font-bold text-violet-300 mb-4">FONTOS:</h3>
+                    <p id="b-important-text" class="text-white">Szeretném felhívni minden kedves vásárló/érdeklődő figyelmét, hogy az általunk forgalmazott arónialé, minden évben limitált (korlátozott) mennyiségben érhető el, erről a termékek menü alatt tájékoztatjuk Önöket!</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const translations = {
+        'hu': {
+            'b-title': 'Bemutatkozás',
+            'b-welcome': 'Tisztelettel üdvözöljük weboldalunkon!',
+            'b-p1': 'Mindjárt az elején azzal a fontos információval szeretnénk kezdeni, hogy elsődleges célunknak azt tekintjük, hogy minden kedves érdeklődő/vásárló számára, egy minden részletre kiterjedő hiteles és korrekt tájékoztatást nyújtsunk erről a nagyszerű prémium minőségű bio termékről.',
+            'b-p2': 'Ebben is szeretnénk eltérni, illetve különbözni azon weboldalaktól, amelyek sajnos sok esetben rendkívül kevés információval látják el a termék iránt érdeklődőket, legyen szó akár az eredetéről, akár a minőségéről stb. Ezekről mi egy közel 4 éve tartó fogyasztói, piackutatói, termesztési, préselés technikai, szüretelési, palackozási tapasztalat alapján jutottunk el egészen a forgalmazásig.',
+            'b-p3': 'Az évek során rengeteg tapasztalatot gyűjtöttünk annak érdekében, hogy a létező legjobb minőségű arónia préselt levet tudjuk forgalmazni Magyarországon. Az összes itthon forgalmazott arónia levet kipróbáltuk, amelyeknek túlnyomó többsége szinte ihatatlan (pláne önmagában), ez főleg az import termékekre jellemző, de az itthon termesztett és előállított (kézműves) termékek is rendkívül savanyúak.',
+            'b-p4': '(Ennek okairól beszámolunk)',
+            'b-p5': 'Rengeteg weboldalon olvasható például, hogy egész évben elérhető, korlátlan mennyiségben, ez meg, hogy lehetséges egy olyan terméknél, ami egy adott évben 1x terem, egy bizonyos mennyiségben???',
+            'b-p6': '(erről is olvashatnak az oldalunkon)',
+            'b-important-title': 'FONTOS:',
+            'b-important-text': 'Szeretném felhívni minden kedves vásárló/érdeklődő figyelmét, hogy az általunk forgalmazott arónialé, minden évben limitált (korlátozott) mennyiségben érhető el, erről a termékek menü alatt tájékoztatjuk Önöket!',
+        },
+        'en': {
+            'b-title': 'Introduction',
+            'b-welcome': 'We respectfully welcome you to our website!',
+            'b-p1': 'Right at the beginning, we want to start with the important information that we consider our primary goal to provide all interested parties/customers with comprehensive, authentic, and correct information about this great premium quality organic product.',
+            'b-p2': 'In this, we also want to differ from those websites that, unfortunately, in many cases provide very little information to those interested in the product, whether it be about its origin, quality, etc. We have reached the point of distribution based on nearly 4 years of consumer, market research, cultivation, pressing technique, harvesting, and bottling experience.',
+            'b-p3': 'Over the years, we have gathered a lot of experience to be able to market the best quality pressed aronia juice in Hungary. We have tried all domestically sold aronia juices, the vast majority of which are almost undrinkable (especially on their own), this is mainly characteristic of imported products, but domestically grown and produced (artisanal) products are also extremely sour.',
+            'b-p4': '(We will report on the reasons for this)',
+            'b-p5': 'It can be read on many websites, for example, that it is available all year round, in unlimited quantities. How is this possible for a product that is harvested only once a year, in a certain quantity???',
+            'b-p6': '(you can also read about this on our site)',
+            'b-important-title': 'IMPORTANT:',
+            'b-important-text': 'I would like to draw the attention of all dear customers/interested parties to the fact that the aronia juice we sell is available in a limited quantity each year; we will inform you about this under the products menu!',
+        },
+        'de': {
+            'b-title': 'Vorstellung',
+            'b-welcome': 'Wir heißen Sie herzlich auf unserer Webseite willkommen!',
+            'b-p1': 'Gleich zu Beginn möchten wir mit der wichtigen Information beginnen, dass wir es als unser oberstes Ziel betrachten, allen Interessenten/Kunden eine umfassende, authentische und korrekte Information über dieses großartige Bio-Produkt von Premium-Qualität zu bieten.',
+            'b-p2': 'Auch hierin möchten wir uns von jenen Webseiten unterscheiden, die leider in vielen Fällen nur sehr wenige Informationen für Interessenten bereitstellen, sei es über die Herkunft, die Qualität usw. Wir sind auf der Grundlage von fast 4 Jahren Erfahrung in den Bereichen Verbraucher, Marktforschung, Anbau, Presstechnik, Ernte und Abfüllung zum Vertrieb gelangt.',
+            'b-p3': 'Im Laufe der Jahre haben wir viel Erfahrung gesammelt, um den besten gepressten Aroniasaft in Ungarn vermarkten zu können. Wir haben alle im Inland verkauften Aroniasäfte ausprobiert, von denen die überwiegende Mehrheit fast ungenießbar ist (besonders pur), was hauptsächlich für importierte Produkte charakteristisch ist, aber auch im Inland angebaute und hergestellte (handwerkliche) Produkte sind extrem sauer.',
+            'b-p4': '(Über die Gründe hierfür werden wir berichten)',
+            'b-p5': 'Auf vielen Webseiten ist zum Beispiel zu lesen, dass es das ganze Jahr über in unbegrenzten Mengen verfügbar ist. Wie ist das bei einem Produkt möglich, das nur einmal im Jahr in einer bestimmten Menge geerntet wird???',
+            'b-p6': '(darüber können Sie auch auf unserer Seite lesen)',
+            'b-important-title': 'WICHTIG:',
+            'b-important-text': 'Ich möchte alle lieben Kunden und Interessenten darauf aufmerksam machen, dass der von uns vertriebene Aroniasaft jedes Jahr in limitierter (begrenzter) Menge verfügbar ist; darüber informieren wir Sie im Menü Produkte!',
+        }
+    };
+
+    function updateContent(lang) {
+        document.documentElement.lang = lang;
+        for (const key in translations[lang]) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.innerHTML = translations[lang][key];
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const langButtons = document.querySelectorAll('.lang-button');
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                langButtons.forEach(btn => {
+                    btn.classList.remove('bg-violet-600', 'hover:bg-violet-700');
+                    btn.classList.add('bg-slate-600', 'hover:bg-slate-700');
+                });
+                button.classList.remove('bg-slate-600', 'hover:bg-slate-700');
+                button.classList.add('bg-violet-600', 'hover:bg-violet-700');
+                updateContent(button.dataset.lang);
+            });
+        });
+
+        // Full page background image cycling logic
+        const bgImages = document.querySelectorAll('.background-image');
+        let currentBgIndex = 0;
+        setInterval(() => {
+            bgImages[currentBgIndex].style.opacity = '0';
+            currentBgIndex = (currentBgIndex + 1) % bgImages.length;
+            bgImages[currentBgIndex].style.opacity = '1';
+        }, 5000);
+
+        updateContent('hu');
+    });
+    </script>
+</body>
+</html>
