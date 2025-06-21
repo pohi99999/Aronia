@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="hu" class="scroll-smooth">
 <head>
@@ -65,6 +66,7 @@
             background-color: rgba(17, 24, 39, 0.7); /* A dark overlay matching the theme */
         }
     </style>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body class="bg-gray-900 text-slate-100">
 
@@ -83,6 +85,7 @@
             <div class="hidden md:flex space-x-8">
                 <a href="#piac" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Piac és Potenciál</a>
                 <a href="#minoseg" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Garantált Minőség</a>
+                <a href="#gallery-preview-section" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Galéria</a>
                 <a href="#partnerség" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Partnerség</a>
                 <a href="#kapcsolat" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Kapcsolat</a>
             </div>
@@ -157,21 +160,60 @@
                             </div>
                             <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-violet-500 hover:shadow-xl transition-shadow">
                                 <h4 id="heavy-metal-free-title" class="font-bold text-lg mb-2">Nehézfémmentes</h4>
-                                <p id="heavy-metal-free-text" class="text-sm text-slate-300">Garantáltan mentes a káros nehézfém-szennyeződésektől.</p>
+                                <p id="heavy-metal-free-text" class="text-sm text-slate-300">Garantáltan mentes a káros nehézfém-szennyeződésektől, valamint Vegán, és Gluténmentes.</p>
                             </div>
                             <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-violet-500 hover:shadow-xl transition-shadow">
                                 <h4 id="patykin-test-title" class="font-bold text-lg mb-2">Laborvizsgálat</h4>
                                 <p id="patykin-test-text" class="text-sm text-slate-300">Független teszt igazolja a 100%-os aróniatartalmat, kizárva a hígítást.</p>
                             </div>
-                            <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-violet-500 hover:shadow-xl transition-shadow">
-                                <h4 id="magyarany-ermes-title" class="font-bold text-lg mb-2">NAGYARANYÉRMES 2021-2022-2023</h4>
-                                <p id="magyarany-ermes-text" class="text-sm text-slate-300">Nagyaranyérmes díj győztese a termékünk 2021, 2022, 2023 -as Nemzetközi Agrár Expo-n is a legjobbnak bizonyúltunk.</p>
+                            
+                            <div class="lg:col-span-3 bg-gray-700/60 p-6 md:p-8 rounded-2xl shadow-2xl border-2 border-amber-400 my-4">
+                                <div class="text-center">
+                                    <h4 id="magyarany-ermes-title" class="font-bold text-2xl mb-3 text-amber-300">NAGYARANYÉRMES 2021-2022-2023</h4>
+                                    <p id="magyarany-ermes-text" class="text-md text-slate-200 mb-6 max-w-2xl mx-auto">Nagyaranyérmes díj győztese a termékünk 2021, 2022, 2023 -as Nemzetközi Agrár Expo-n is a legjobbnak bizonyúltunk.</p>
+                                </div>
+                                <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
+                                    <div class="flex justify-center items-center">
+                                        <img src="1.jpg" alt="Black Gold Aronia Nagyaranyérem díjak 2021, 2022, 2023 - termékeken" class="rounded-lg shadow-lg w-full h-auto object-contain max-h-72 sm:max-h-80 md:max-h-96">
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <img src="2.jpg" alt="Black Gold Aronia termékcímke Nagyaranyérem díjakkal" class="rounded-lg shadow-lg w-full h-auto object-contain max-h-72 sm:max-h-80 md:max-h-96">
+                                    </div>
+                                    <div class="flex justify-center items-center">
+                                        <img src="3.jpg" alt="Black Gold Aronia promóciós anyag díjakkal" class="rounded-lg shadow-lg w-full h-auto object-contain max-h-72 sm:max-h-80 md:max-h-96">
+                                    </div>
+                                </div>
                             </div>
+
                             <div class="bg-gray-800 p-6 rounded-xl shadow-lg border-l-4 border-violet-500 hover:shadow-xl transition-shadow">
                                 <h4 id="patulin-free-title" class="font-bold text-lg mb-2">Patulin-mentesség</h4>
                                 <p id="patulin-free-text" class="text-sm text-slate-300">A szigorú ellenőrzés garantálja a káros anyagoktól mentes, biztonságos terméket.</p>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="gallery-preview-section" class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="section-box p-6 md:p-10 rounded-2xl shadow-xl">
+                    <div class="text-center max-w-3xl mx-auto mb-12">
+                        <h2 id="gallery-preview-title" class="text-3xl md:text-4xl font-bold text-white mb-4">Pillantás a Termelésbe és Termékeinkre</h2>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
+                        <div class="flex justify-center items-center">
+                            <img src="6.jpg" alt="Arónia virágok közelről" class="rounded-lg shadow-xl object-cover w-full h-64 md:h-72">
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <img src="38.jpg" alt="Arónia termék raklapon konténerben" class="rounded-lg shadow-xl object-cover w-full h-64 md:h-72">
+                        </div>
+                        <div class="flex justify-center items-center">
+                            <img src="22.jpg" alt="Arónia lé pohárba töltve" class="rounded-lg shadow-xl object-cover w-full h-64 md:h-72">
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a id="gallery-preview-button" href="d.html" target="_blank" class="bg-violet-700 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-violet-800 transition-transform hover:scale-105 shadow-lg">További fotókért kattintson ide</a>
                     </div>
                 </div>
             </div>
@@ -184,21 +226,25 @@
                         <h2 id="partnerség-title" class="text-3xl md:text-4xl font-bold text-white mb-4">Skálázhatóság és Hosszú Távú Partnerség</h2>
                         <p id="partnerség-text" class="text-slate-300">Felkészültünk a növekedésre. Jelentős raktárkészlettel és rugalmas, bővíthető termelési kapacitással biztosítjuk a megbízható ellátást, amely egy stabil üzleti kapcsolat alapja. Folyamatosan újítunk, hogy partnereinkkel együtt hódítsuk meg a piacot.</p>
                     </div>
+
+                    <div class="my-8 md:my-12 flex justify-center">
+                        <img src="4.jpg" alt="Aronia ORAC érték összehasonlító grafikon" class="rounded-lg shadow-xl max-w-full h-auto md:max-w-2xl">
+                    </div>
                     
                     <div class="grid md:grid-cols-1 lg:grid-cols-3 gap-8">
                         <div class="lg:col-span-2 bg-gray-700/50 p-8 rounded-2xl shadow-lg flex flex-col justify-center">
                             <h3 id="production-capacity-title" class="text-xl font-bold mb-6 text-center">Termelési Kapacitásunk</h3>
                             <div class="flex flex-col md:flex-row justify-around items-center gap-8">
                                 <div class="text-center">
-                                    <p class="text-5xl font-bold text-violet-400" data-target="90000">0</p>
+                                    <p class="text-5xl font-bold text-violet-400" data-target="9000">0</p>
                                     <p id="current-stock" class="text-slate-300 mt-2">Liter Jelenlegi Készlet</p>
                                 </div>
                                 <div class="text-center">
-                                    <p class="text-5xl font-bold text-violet-400" data-target="180000">0</p>
-                                    <p id="expected-stock" class="text-slate-300 mt-2">Liter Várható Készlet (szeptember)</p>
+                                    <p class="text-5xl font-bold text-violet-400" data-target="100000">0</p>
+                                    <p id="expected-stock" class="text-slate-300 mt-2">Liter Várható Készlet (2026 első negyedévére)</p>
                                 </div>
                             </div>
-                            <p id="production-note" class="text-center text-sm text-slate-400 mt-8">Termelésünk a piaci igények szerint évről-évre tovább növelhető.</p>
+                            <p id="production-note" class="text-center text-sm text-slate-400 mt-8">Termelésünk a piaci igények szerint évről-évre tovább növelhető. Továbbá arónia por készletünk is lesz a jövő évben 20000 kg.</p>
                         </div>
 
                         <div class="bg-violet-900/80 text-white p-8 rounded-2xl shadow-lg flex flex-col justify-center text-center">
@@ -218,7 +264,7 @@
                     <h2 id="kapcsolat-title" class="text-3xl md:text-4xl font-bold text-white mb-4">Lépjünk Kapcsolatba és Építsünk Együtt Sikert!</h2>
                     <p id="kapcsolat-text" class="text-slate-300 max-w-2xl mx-auto mb-8">Amennyiben elkötelezettségünk a minőség iránt és a vázolt piaci lehetőség összhangban van az Ön üzleti céljaival, tegyük meg a következő lépést egy gyümölcsöző partnerség felé.</p>
                     <div class="max-w-md mx-auto bg-gray-700/50 p-8 rounded-2xl shadow-inner border border-slate-700">
-                        <p id="company-name" class="font-bold text-lg mb-2">ÁRONIA KERESKEDELEM</p>
+                        <p id="company-name" class="font-bold text-lg mb-2">ARÓNIA KERESKEDELEM</p>
                         <p id="brand-name" class="text-slate-300">Black Gold Aronia</p>
                         <a href="http://www.blackgoldaronia.hu" target="_blank" class="block my-4 text-violet-400 font-semibold hover:underline">www.blackgoldaronia.hu</a>
                         <p id="contact-instruction" class="text-slate-400 text-sm">Kérjük, vegye fel velünk a kapcsolatot a weboldalunkon keresztül vagy kérjen visszahívást egy személyes konzultációra.</p>
@@ -239,9 +285,9 @@
                 <p id="footer-reg-court">Nyilvántartást vezető cégbíróság: Zalaegerszegi Törvényszék Cégbírósága</p>
                 <p id="footer-tax-num">Adószám: 27319923-2-20</p>
                 <p id="footer-webshop">Webáruház: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a></p>
-                <p id="footer-email">E-mail: <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a></p>
+                <p id="footer-email">E-mail: <a href="mailto:lackgoldaronia@gmail.com" class="text-violet-400 hover:underline">lackgoldaronia@gmail.com</a></p>
                 <p id="footer-phone">Telefon: <a href="tel:+36302554209" class="text-violet-400 hover:underline">+36 30 255 4209</a></p>
-                <p id="footer-facebook">Facebook: <a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="text-violet-400 hover:underline">facebook.com/blackgoldaronia</a></p>
+                <p id="footer-facebook" class="mt-2"><a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a></p>
             </div>
             <p id="footer-motto" class="text-slate-500 mt-4">Prémium Magyar Arónia a Hosszú Távú Sikerért.</p>
         </div>
@@ -252,6 +298,7 @@
         'hu': {
             'nav-piac': 'Piac és Potenciál',
             'nav-minoseg': 'Garantált Minőség',
+            'nav-gallery': 'Galéria',
             'nav-partnerség': 'Partnerség',
             'nav-kapcsolat': 'Kapcsolat',
             'hero-title': 'Partnerség a Prémium Magyar Aróniáért',
@@ -273,25 +320,27 @@
             'bio-certification-title': '100% BIO Minősítés',
             'bio-certification-text': 'Szigorú organikus gazdálkodási és feldolgozási szabványok betartása.',
             'heavy-metal-free-title': 'Nehézfémmentes',
-            'heavy-metal-free-text': 'Garantáltan mentes a káros nehézfém-szennyeződésektől.',
+            'heavy-metal-free-text': 'Garantáltan mentes a káros nehézfém-szennyeződésektől, valamint Vegán, és Gluténmentes.',
             'patykin-test-title': 'Laborvizsgálat',
             'patykin-test-text': 'Független teszt igazolja a 100%-os aróniatartalmat, kizárva a hígítást.',
             'magyarany-ermes-title': 'NAGYARANYÉRMES 2021-2022-2023',
             'magyarany-ermes-text': 'Nagyaranyérmes díj győztese a termékünk 2021, 2022, 2023 -as Nemzetközi Agrár Expo-n is a legjobbnak bizonyúltunk.',
             'patulin-free-title': 'Patulin-mentesség',
             'patulin-free-text': 'A szigorú ellenőrzés garantálja a káros anyagoktól mentes, biztonságos terméket.',
+            'gallery-preview-title': 'Pillantás a Termelésbe és Termékeinkre',
+            'gallery-preview-button': 'További fotókért kattintson ide',
             'partnerség-title': 'Skálázhatóság és Hosszú Távú Partnerség',
             'partnerség-text': 'Felkészültünk a növekedésre. Jelentős raktárkészlettel és rugalmas, bővíthető termelési kapacitással biztosítjuk a megbízható ellátást, amely egy stabil üzleti kapcsolat alapja. Folyamatosan újítunk, hogy partnereinkkel együtt hódítsuk meg a piacot.',
             'production-capacity-title': 'Termelési Kapacitásunk',
             'current-stock': 'Liter Jelenlegi Készlet',
-            'expected-stock': 'Liter Várható Készlet (szeptember)',
-            'production-note': 'Termelésünk a piaci igények szerint évről-évre tovább növelhető.',
+            'expected-stock': 'Liter Várható Készlet (2026 első negyedévére)',
+            'production-note': 'Termelésünk a piaci igények szerint évről-évre tovább növelhető. Továbbá arónia por készletünk is lesz a jövő évben 20000 kg.',
             'product-innovation-title': 'Termékinnováció',
             'new-product-intro': 'Új Termék Bevezetése',
             'new-product-text': 'Az idei évtől por illetve tea formájában is elérhető lesz a termékünk.',
             'kapcsolat-title': 'Lépjünk Kapcsolatba és Építsünk Együtt Sikert!',
             'kapcsolat-text': 'Amennyiben elkötelezettségünk a minőség iránt és a vázolt piaci lehetőség összhangban van az Ön üzleti céljaival, tegyük meg a következő lépést egy gyümölcsöző partnerség felé.',
-            'company-name': 'ÁRONIA KERESKEDELEM',
+            'company-name': 'ARÓNIA KERESKEDELEM',
             'brand-name': 'Black Gold Aronia',
             'contact-instruction': 'Kérjük, vegye fel velünk a kapcsolatot a weboldalunkon keresztül vagy kérjen visszahívást egy személyes konzultációra.',
             'consultation-cta': 'Konzultáció Kérése',
@@ -302,14 +351,15 @@
             'footer-reg-num': 'Cégjegyzékszám: 20-09-076877',
             'footer-reg-court': 'Nyilvántartást vezető cégbíróság: Zalaegerszegi Törvényszék Cégbírósága',
             'footer-tax-num': 'Adószám: 27319923-2-20',
-            'footer-webshop': 'Webáruház:',
-            'footer-email': 'E-mail:',
-            'footer-phone': 'Telefon:',
-            'footer-facebook': 'Facebook:'
+            'footer-webshop': 'Webáruház: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a>',
+            'footer-email': 'E-mail: <a href="mailto:lackgoldaronia@gmail.com" class="text-violet-400 hover:underline">lackgoldaronia@gmail.com</a>',
+            'footer-phone': 'Telefon: <a href="tel:+36302554209" class="text-violet-400 hover:underline">+36 30 255 4209</a>',
+            'footer-facebook': '<a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a>'
         },
         'en': {
             'nav-piac': 'Market & Potential',
             'nav-minoseg': 'Guaranteed Quality',
+            'nav-gallery': 'Gallery',
             'nav-partnerség': 'Partnership',
             'nav-kapcsolat': 'Contact',
             'hero-title': 'Partnership for Premium Hungarian Aronia',
@@ -331,19 +381,21 @@
             'bio-certification-title': '100% Organic Certification',
             'bio-certification-text': 'Adherence to strict organic farming and processing standards.',
             'heavy-metal-free-title': 'Heavy Metal-Free',
-            'heavy-metal-free-text': 'Guaranteed free from harmful heavy metal contamination.',
+            'heavy-metal-free-text': 'Guaranteed free from harmful heavy metal contamination, as well as Vegan, and Gluten-Free.',
             'patykin-test-title': 'Lab Test',
             'patykin-test-text': 'Independent test confirms 100% aronia content, excluding dilution.',
             'magyarany-ermes-title': 'GRAND GOLD MEDALIST 2021-2022-2023',
             'magyarany-ermes-text': 'Our product was the winner of the Grand Gold Medal at the International Agricultural Expo in 2021, 2022, and 2023.',
             'patulin-free-title': 'Patulin-Free',
             'patulin-free-text': 'Strict control guarantees a product free from harmful substances and safe.',
+            'gallery-preview-title': 'A Glimpse into Production and Our Products',
+            'gallery-preview-button': 'Click here for more photos',
             'partnerség-title': 'Scalability & Long-Term Partnership',
             'partnerség-text': 'We are prepared for growth. With significant stock and flexible, expandable production capacity, we ensure reliable supply, which is the basis of a stable business relationship. We continuously innovate to conquer the market together with our partners.',
             'production-capacity-title': 'Our Production Capacity',
             'current-stock': 'Liters Current Stock',
-            'expected-stock': 'Liters Expected Stock (September)',
-            'production-note': 'Our production can be increased year-on-year according to market demands.',
+            'expected-stock': 'Liters Expected Stock (first quarter of 2026)',
+            'production-note': 'Our production can be increased year-on-year according to market demands. Furthermore, we will also have 20,000 kg of aronia powder in stock next year.',
             'product-innovation-title': 'Product Innovation',
             'new-product-intro': 'New Product Introduction',
             'new-product-text': 'From this year, our product will also be available in powder and tea form.',
@@ -360,14 +412,15 @@
             'footer-reg-num': 'Company registration number: 20-09-076877',
             'footer-reg-court': 'Registering court: Company Registry of Zalaegerszeg Regional Court',
             'footer-tax-num': 'Tax number: 27319923-2-20',
-            'footer-webshop': 'Webshop:',
-            'footer-email': 'E-mail:',
-            'footer-phone': 'Phone:',
-            'footer-facebook': 'Facebook:'
+            'footer-webshop': 'Webshop: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a>',
+            'footer-email': 'E-mail: <a href="mailto:lackgoldaronia@gmail.com" class="text-violet-400 hover:underline">lackgoldaronia@gmail.com</a>',
+            'footer-phone': 'Phone: <a href="tel:+36302554209" class="text-violet-400 hover:underline">+36 30 255 4209</a>',
+            'footer-facebook': '<a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a>'
         },
         'de': {
             'nav-piac': 'Markt & Potenzial',
             'nav-minoseg': 'Garantierte Qualität',
+            'nav-gallery': 'Galerie',
             'nav-partnerség': 'Partnerschaft',
             'nav-kapcsolat': 'Kontakt',
             'hero-title': 'Partnerschaft für Premium Ungarische Aronia',
@@ -389,19 +442,21 @@
             'bio-certification-title': '100% Bio-Zertifizierung',
             'bio-certification-text': 'Einhaltung strenger Bio-Anbau- und Verarbeitungsstandards.',
             'heavy-metal-free-title': 'Schwermetallfrei',
-            'heavy-metal-free-text': 'Garantiert frei von schädlichen Schwermetallverunreinigungen.',
+            'heavy-metal-free-text': 'Garantiert frei von schädlichen Schwermetallverunreinigungen, sowie Vegan und Glutenfrei.',
             'patykin-test-title': 'Labortest',
             'patykin-test-text': 'Unabhängiger Test bestätigt 100% Aronia-Gehalt, Verdünnung ausgeschlossen.',
             'magyarany-ermes-title': 'GROSSE GOLDMEDAILLE 2021-2022-2023',
             'magyarany-ermes-text': 'Unser Produkt war der Gewinner der Grossen Goldmedaille auf der Internationalen Landwirtschaftsmesse in den Jahren 2021, 2022 und 2023.',
             'patulin-free-title': 'Patulin-frei',
             'patulin-free-text': 'Strenge Kontrollen garantieren ein Produkt frei von schädlichen Substanzen und sicher.',
+            'gallery-preview-title': 'Ein Einblick in die Produktion und unsere Produkte',
+            'gallery-preview-button': 'Klicken Sie hier für mehr Fotos',
             'partnerség-title': 'Skalierbarkeit & Langfristige Partnerschaft',
             'partnerség-text': 'Wir sind auf Wachstum vorbereitet. Mit erheblichen Lagerbeständen und flexiblen, erweiterbaren Produktionskapazitäten gewährleisten wir eine zuverlässige Versorgung, die die Grundlage einer stabilen Geschäftsbeziehung bildet. Wir innovieren kontinuierlich, um gemeinsam mit unseren Partnern den Markt zu erobern.',
             'production-capacity-title': 'Unsere Produktionskapazität',
             'current-stock': 'Liter aktueller Bestand',
-            'expected-stock': 'Liter erwarteter Bestand (September)',
-            'production-note': 'Unsere Produktion kann je nach Marktanforderungen jährlich gesteigert werden.',
+            'expected-stock': 'Liter erwarteter Bestand (erstes Quartal 2026)',
+            'production-note': 'Unsere Produktion kann je nach Marktnachfrage jährlich gesteigert werden. Darüber hinaus werden wir im nächsten Jahr auch 20.000 kg Aroniapulver auf Lager haben.',
             'product-innovation-title': 'Produktinnovation',
             'new-product-intro': 'Einführung eines neuen Produkts',
             'new-product-text': 'Ab diesem Jahr wird unser Produkt auch in Pulver- und Teeform erhältlich sein.',
@@ -418,34 +473,31 @@
             'footer-reg-num': 'Handelsregisternummer: 20-09-076877',
             'footer-reg-court': 'Registergericht: Handelsgericht des Landgerichts Zalaegerszeg',
             'footer-tax-num': 'Steuernummer: 27319923-2-20',
-            'footer-webshop': 'Webshop:',
-            'footer-email': 'E-Mail:',
-            'footer-phone': 'Telefon:',
-            'footer-facebook': 'Facebook:'
+            'footer-webshop': 'Webshop: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a>',
+            'footer-email': 'E-Mail: <a href="mailto:lackgoldaronia@gmail.com" class="text-violet-400 hover:underline">lackgoldaronia@gmail.com</a>',
+            'footer-phone': 'Telefon: <a href="tel:+36302554209" class="text-violet-400 hover:underline">+36 30 255 4209</a>',
+            'footer-facebook': '<a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a>'
         }
     };
 
     let currentLang = 'hu';
-    let marketChart; // Declare marketChart globally to be accessible
+    let marketChart; 
 
     function updateContent(lang) {
         currentLang = lang;
         document.documentElement.lang = lang; 
 
-        // Update all elements with an 'id' attribute from the translations object
         for (const key in translations[lang]) {
             const element = document.getElementById(key);
             if (element) {
-                // For links, we might need to handle inner text differently if they contain other elements.
-                // For now, innerHTML works for these simple cases.
                 element.innerHTML = translations[lang][key];
             }
         }
         
-        // Specific updates for nav links as they don't have IDs
         const navLinksData = {
             'nav-piac': 'a[href="#piac"]',
             'nav-minoseg': 'a[href="#minoseg"]',
+            'nav-gallery': 'a[href="#gallery-preview-section"]',
             'nav-partnerség': 'a[href="#partnerség"]',
             'nav-kapcsolat': 'a[href="#kapcsolat"]'
         };
@@ -595,8 +647,9 @@
             bgImages[currentBgIndex].style.opacity = '1';
         }, 5000);
 
-        updateContent('hu');
+        updateContent('hu'); 
     });
     </script>
+<script type="module" src="/index.tsx"></script>
 </body>
 </html>

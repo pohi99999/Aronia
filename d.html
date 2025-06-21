@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="d-page-title">Fotógaléria - Black Gold Aronia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #111827; 
+        }
+        .section-box {
+            background-color: rgba(31, 41, 55, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        #background-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: opacity 1.5s ease-in-out;
+        }
+        #background-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(17, 24, 39, 0.7); 
+        }
+        .gallery-item {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(167, 139, 250, 0.3), 0 6px 6px rgba(167, 139, 250, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-slate-100">
+
+    <div id="background-container">
+        <img src="1.webp" class="background-image opacity-100" alt="Arónia háttérkép 1">
+        <img src="2.webp" class="background-image opacity-0" alt="Arónia háttérkép 2">
+        <img src="3.webp" class="background-image opacity-0" alt="Arónia háttérkép 3">
+        <img src="4.webp" class="background-image opacity-0" alt="Arónia háttérkép 4">
+    </div>
+
+    <header class="bg-black/80 backdrop-blur-sm sticky top-0 z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <img src="p1.jpg" alt="Black Gold Aronia Logo" class="h-10 w-auto">
+            </a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html#piac" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Piac és Potenciál</a>
+                <a href="index.html#minoseg" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Garantált Minőség</a>
+                <a href="index.html#gallery-preview-section" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Galéria</a>
+                <a href="index.html#partnerség" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Partnerség</a>
+                <a href="index.html#kapcsolat" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Kapcsolat</a>
+            </div>
+            <div class="flex space-x-2">
+                <button class="lang-button bg-violet-600 hover:bg-violet-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="hu">HU</button>
+                <button class="lang-button bg-slate-600 hover:bg-slate-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="en">EN</button>
+                <button class="lang-button bg-slate-600 hover:bg-slate-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="de">DE</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <div class="section-box p-6 md:p-10 rounded-2xl shadow-xl">
+                <h1 id="d-gallery-title" class="text-3xl md:text-4xl font-bold text-white mb-12 text-center">Képek a Black Gold Aronia Életéből</h1>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+                    <img src="1.jpg" alt="Black Gold Aronia - Galéria Kép (1.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="2.jpg" alt="Black Gold Aronia - Galéria Kép (2.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="3.jpg" alt="Black Gold Aronia - Galéria Kép (3.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="4.jpg" alt="Black Gold Aronia - Galéria Kép (4.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="6.jpg" alt="Black Gold Aronia - Galéria Kép (6.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="9.jpg" alt="Black Gold Aronia - Galéria Kép (9.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="10.jpg" alt="Black Gold Aronia - Galéria Kép (10.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="11.jpg" alt="Black Gold Aronia - Galéria Kép (11.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="12.jpg" alt="Black Gold Aronia - Galéria Kép (12.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="14.jpg" alt="Black Gold Aronia - Galéria Kép (14.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="15.jpg" alt="Black Gold Aronia - Galéria Kép (15.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="16.jpg" alt="Black Gold Aronia - Galéria Kép (16.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="17.jpg" alt="Black Gold Aronia - Galéria Kép (17.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="18.jpg" alt="Black Gold Aronia - Galéria Kép (18.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="19.jpg" alt="Black Gold Aronia - Galéria Kép (19.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="21.jpg" alt="Black Gold Aronia - Galéria Kép (21.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="22.jpg" alt="Black Gold Aronia - Galéria Kép (22.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="23.jpg" alt="Black Gold Aronia - Galéria Kép (23.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="25.jpg" alt="Black Gold Aronia - Galéria Kép (25.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="26.jpg" alt="Black Gold Aronia - Galéria Kép (26.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="27.jpg" alt="Black Gold Aronia - Galéria Kép (27.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="28.jpg" alt="Black Gold Aronia - Galéria Kép (28.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="29.jpg" alt="Black Gold Aronia - Galéria Kép (29.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="30.jpg" alt="Black Gold Aronia - Galéria Kép (30.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="31.jpg" alt="Black Gold Aronia - Galéria Kép (31.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="32.jpg" alt="Black Gold Aronia - Galéria Kép (32.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="33.jpg" alt="Black Gold Aronia - Galéria Kép (33.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="34.jpg" alt="Black Gold Aronia - Galéria Kép (34.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="35.jpg" alt="Black Gold Aronia - Galéria Kép (35.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="36.jpg" alt="Black Gold Aronia - Galéria Kép (36.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="37.jpg" alt="Black Gold Aronia - Galéria Kép (37.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="38.jpg" alt="Black Gold Aronia - Galéria Kép (38.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                    <img src="39.jpg" alt="Black Gold Aronia - Galéria Kép (39.jpg)" class="gallery-item rounded-lg shadow-lg w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900/80 text-slate-400 py-6 mt-16">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p id="footer-copy">&copy; 2025 Black Gold Aronia - Minden jog fenntartva.</p>
+        </div>
+    </footer>
+
+    <script>
+    const translations = {
+        'hu': {
+            'd-page-title': 'Fotógaléria - Black Gold Aronia',
+            'd-gallery-title': 'Képek a Black Gold Aronia Életéből',
+            'nav-piac': 'Piac és Potenciál',
+            'nav-minoseg': 'Garantált Minőség',
+            'nav-gallery': 'Galéria',
+            'nav-partnerség': 'Partnerség',
+            'nav-kapcsolat': 'Kapcsolat',
+            'footer-copy': '&copy; 2025 Black Gold Aronia - Minden jog fenntartva.'
+        },
+        'en': {
+            'd-page-title': 'Photo Gallery - Black Gold Aronia',
+            'd-gallery-title': 'Pictures from the Life of Black Gold Aronia',
+            'nav-piac': 'Market & Potential',
+            'nav-minoseg': 'Guaranteed Quality',
+            'nav-gallery': 'Gallery',
+            'nav-partnerség': 'Partnership',
+            'nav-kapcsolat': 'Contact',
+            'footer-copy': '&copy; 2025 Black Gold Aronia - All rights reserved.'
+        },
+        'de': {
+            'd-page-title': 'Fotogalerie - Black Gold Aronia',
+            'd-gallery-title': 'Bilder aus dem Leben von Black Gold Aronia',
+            'nav-piac': 'Markt & Potenzial',
+            'nav-minoseg': 'Garantierte Qualität',
+            'nav-gallery': 'Galerie',
+            'nav-partnerség': 'Partnerschaft',
+            'nav-kapcsolat': 'Kontakt',
+            'footer-copy': '&copy; 2025 Black Gold Aronia - Alle Rechte vorbehalten.'
+        }
+    };
+
+    function updateContent(lang) {
+        document.documentElement.lang = lang;
+        for (const key in translations[lang]) {
+            const element = document.getElementById(key);
+            if (element) {
+                element.innerHTML = translations[lang][key];
+            }
+        }
+         const navLinksData = {
+            'nav-piac': 'header nav a[href="index.html#piac"]',
+            'nav-minoseg': 'header nav a[href="index.html#minoseg"]',
+            'nav-gallery': 'header nav a[href="index.html#gallery-preview-section"]',
+            'nav-partnerség': 'header nav a[href="index.html#partnerség"]',
+            'nav-kapcsolat': 'header nav a[href="index.html#kapcsolat"]'
+        };
+        for(const key in navLinksData) {
+            const element = document.querySelector(navLinksData[key]);
+            if(element && translations[lang][key]) {
+                element.innerText = translations[lang][key];
+            }
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const langButtons = document.querySelectorAll('.lang-button');
+        langButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                langButtons.forEach(btn => {
+                    btn.classList.remove('bg-violet-600', 'hover:bg-violet-700');
+                    btn.classList.add('bg-slate-600', 'hover:bg-slate-700');
+                });
+                button.classList.remove('bg-slate-600', 'hover:bg-slate-700');
+                button.classList.add('bg-violet-600', 'hover:bg-violet-700');
+                updateContent(button.dataset.lang);
+            });
+        });
+
+        const bgImages = document.querySelectorAll('.background-image');
+        let currentBgIndex = 0;
+        setInterval(() => {
+            bgImages[currentBgIndex].style.opacity = '0';
+            currentBgIndex = (currentBgIndex + 1) % bgImages.length;
+            bgImages[currentBgIndex].style.opacity = '1';
+        }, 5000);
+
+        updateContent('hu'); 
+    });
+    </script>
+</body>
+</html>
