@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="hu" class="scroll-smooth">
 <head>
@@ -81,6 +82,7 @@
             <a href="#" class="flex items-center space-x-2">
                 <img src="p1.jpg" alt="Black Gold Aronia Logo" class="h-10 w-auto">
             </a>
+            <!-- Desktop Menu -->
             <div class="hidden md:flex space-x-8">
                 <a href="#piac" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Piac és Potenciál</a>
                 <a href="#minoseg" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Garantált Minőség</a>
@@ -88,20 +90,46 @@
                 <a href="#partnerség" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Partnerség</a>
                 <a href="#kapcsolat" class="nav-link text-slate-300 hover:text-violet-300 transition-colors">Kapcsolat</a>
             </div>
-            <div class="flex space-x-2">
-                <button class="lang-button bg-violet-600 hover:bg-violet-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="hu">HU</button>
-                <button class="lang-button bg-slate-600 hover:bg-slate-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="en">EN</button>
-                <button class="lang-button bg-slate-600 hover:bg-slate-700 text-white font-bold py-1 px-3 rounded-md transition-colors" data-lang="de">DE</button>
+             <!-- Right side controls: Language buttons and Mobile menu toggle -->
+            <div class="flex items-center">
+                <!-- Language Buttons -->
+                <div class="flex space-x-1 sm:space-x-2">
+                    <button class="lang-button bg-violet-600 hover:bg-violet-700 text-white font-bold py-1 px-2 text-xs sm:text-sm rounded-md transition-colors" data-lang="hu">HU</button>
+                    <button class="lang-button bg-slate-600 hover:bg-slate-700 text-white font-bold py-1 px-2 text-xs sm:text-sm rounded-md transition-colors" data-lang="en">EN</button>
+                    <button class="lang-button bg-slate-600 hover:bg-slate-700 text-white font-bold py-1 px-2 text-xs sm:text-sm rounded-md transition-colors" data-lang="de">DE</button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden ml-2">
+                    <button id="mobile-menu-button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu-links" class="text-slate-300 hover:text-violet-300 focus:outline-none p-1 rounded">
+                        <svg id="menu-icon-open" class="h-6 w-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
             </div>
         </nav>
+        <!-- Mobile Menu Links -->
+        <div id="mobile-menu-links" class="md:hidden hidden bg-black/90 backdrop-blur-sm pb-4">
+            <div class="flex flex-col items-center space-y-2 pt-2 pb-3 px-2">
+                <a href="#piac" class="nav-link text-slate-200 hover:text-violet-300 hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium w-full text-center">Piac és Potenciál</a>
+                <a href="#minoseg" class="nav-link text-slate-200 hover:text-violet-300 hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium w-full text-center">Garantált Minőség</a>
+                <a href="#gallery-preview-section" class="nav-link text-slate-200 hover:text-violet-300 hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium w-full text-center">Galéria</a>
+                <a href="#partnerség" class="nav-link text-slate-200 hover:text-violet-300 hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium w-full text-center">Partnerség</a>
+                <a href="#kapcsolat" class="nav-link text-slate-200 hover:text-violet-300 hover:bg-gray-700 block px-3 py-2 rounded-md text-base font-medium w-full text-center">Kapcsolat</a>
+            </div>
+        </div>
     </header>
 
     <main>
         <section id="hero" class="relative text-center py-20 md:py-32 overflow-hidden">
             <div class="container mx-auto px-6 relative z-10">
-                <h1 id="hero-title" class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">Partnerség a Prémium Aróniáért</h1>
+                <h1 id="hero-title" class="text-4xl md:text-6xl font-extrabold text-white mb-4 leading-tight">Partnerség a Prémium Magyar Aróniáért</h1>
                 <p id="hero-subtitle" class="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-8">Fedezze fel a lehetőséget egy hosszú távú, sikeres együttműködésre egy bizonyítottan tiszta, tanúsítványokkal rendelkező, 100% bio arónia termékkel.</p>
-                <a id="hero-cta" href="#piac" class="bg-violet-700 text-white font-bold py-3 px-8 rounded-lg text-lg hover:bg-violet-800 transition-transform hover:scale-105 shadow-lg">Ismerje meg a lehetőséget</a>
+                <a id="hero-cta" href="#piac" class="bg-violet-700 text-white font-bold py-3 px-4 sm:px-8 rounded-lg text-base sm:text-lg hover:bg-violet-800 transition-transform hover:scale-105 shadow-lg inline-block">Ismerje meg a lehetőséget</a>
             </div>
         </section>
 
@@ -198,7 +226,7 @@
             <div class="container mx-auto px-6">
                 <div class="section-box p-6 md:p-10 rounded-2xl shadow-xl">
                     <div class="text-center max-w-3xl mx-auto mb-12">
-                        <h2 id="gallery-preview-title" class="text-3xl md:text-4xl font-bold text-white mb-4">Bepillantás a Termelésbe</h2>
+                        <h2 id="gallery-preview-title" class="text-3xl md:text-4xl font-bold text-white mb-4">Pillantás a Termelésbe és Termékeinkre</h2>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12">
                         <div class="flex justify-center items-center">
@@ -248,7 +276,12 @@
 
                         <div class="bg-violet-900/80 text-white p-8 rounded-2xl shadow-lg flex flex-col justify-center text-center">
                             <h3 id="product-innovation-title" class="text-xl font-bold mb-4">Termékinnováció</h3>
-                            <div class="text-5xl mb-4">🍵</div>
+                            <div class="flex justify-center mb-4">
+                                <video class="w-full max-w-[180px] h-auto rounded-lg shadow-lg" autoplay loop muted playsinline>
+                                    <source src="1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
                             <p id="new-product-intro" class="font-semibold">Új Termék Bevezetése</p>
                             <p id="new-product-text" class="mt-2 text-violet-200">Az idei évtől por illetve tea formájában is elérhető lesz a termékünk.</p>
                         </div>
@@ -285,7 +318,6 @@
                 <p id="footer-tax-num">Adószám: 27319923-2-20</p>
                 <p id="footer-webshop">Webáruház: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a></p>
                 <p id="footer-email">E-mail: <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a></p>
-                <p id="footer-phone">Telefon: <a href="tel:+36302554209" class="text-violet-400 hover:underline">+36 30 255 4209</a></p>
                 <p id="footer-facebook" class="mt-2"><a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a></p>
             </div>
             <p id="footer-motto" class="text-slate-500 mt-4">Prémium Magyar Arónia a Hosszú Távú Sikerért.</p>
@@ -300,7 +332,7 @@
             'nav-gallery': 'Galéria',
             'nav-partnerség': 'Partnerség',
             'nav-kapcsolat': 'Kapcsolat',
-            'hero-title': 'Partnerség a Prémium Aróniáért',
+            'hero-title': 'Partnerség a Prémium Magyar Aróniáért',
             'hero-subtitle': 'Fedezze fel a lehetőséget egy hosszú távú, sikeres együttműködésre egy bizonyítottan tiszta, tanúsítványokkal rendelkező, 100% bio arónia termékkel.',
             'hero-cta': 'Ismerje meg a lehetőséget',
             'piac-title': 'Piac és Potenciál: Lépjen be egy Virágzó Szekcióba',
@@ -326,7 +358,7 @@
             'magyarany-ermes-text': 'Nagyaranyérmes díj győztese a termékünk 2021, 2022, 2023 -as Nemzetközi Agrár Expo-n is a legjobbnak bizonyúltunk.',
             'patulin-free-title': 'Patulin-mentesség',
             'patulin-free-text': 'A szigorú ellenőrzés garantálja a káros anyagoktól mentes, biztonságos terméket.',
-            'gallery-preview-title': 'Bepillantás a Termelésbe',
+            'gallery-preview-title': 'Pillantás a Termelésbe és Termékeinkre',
             'gallery-preview-button': 'További fotókért kattintson ide',
             'partnerség-title': 'Skálázhatóság és Hosszú Távú Partnerség',
             'partnerség-text': 'Felkészültünk a növekedésre. Jelentős raktárkészlettel és rugalmas, bővíthető termelési kapacitással biztosítjuk a megbízható ellátást, amely egy stabil üzleti kapcsolat alapja. Folyamatosan újítunk, hogy partnereinkkel együtt hódítsuk meg a piacot.',
@@ -352,7 +384,6 @@
             'footer-tax-num': 'Adószám: 27319923-2-20',
             'footer-webshop': 'Webáruház: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a>',
             'footer-email': 'E-mail: <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a>',
-            'footer-phone': 'Telefon: <a href="tel:+36302554209" class="text-violet-400 hover:underline">+36 30 255 4209</a>',
             'footer-facebook': '<a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a>'
         },
         'en': {
@@ -387,7 +418,7 @@
             'magyarany-ermes-text': 'Our product was the winner of the Grand Gold Medal at the International Agricultural Expo in 2021, 2022, and 2023.',
             'patulin-free-title': 'Patulin-Free',
             'patulin-free-text': 'Strict control guarantees a product free from harmful substances and safe.',
-            'gallery-preview-title': 'A Glimpse into Production',
+            'gallery-preview-title': 'A Glimpse into Production and Our Products',
             'gallery-preview-button': 'Click here for more photos',
             'partnerség-title': 'Scalability & Long-Term Partnership',
             'partnerség-text': 'We are prepared for growth. With significant stock and flexible, expandable production capacity, we ensure reliable supply, which is the basis of a stable business relationship. We continuously innovate to conquer the market together with our partners.',
@@ -413,7 +444,6 @@
             'footer-tax-num': 'Tax number: 27319923-2-20',
             'footer-webshop': 'Webshop: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a>',
             'footer-email': 'E-mail: <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a>',
-            'footer-phone': 'Phone: <a href="tel:+36302554209" class="text-violet-400 hover:underline">+36 30 255 4209</a>',
             'footer-facebook': '<a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a>'
         },
         'de': {
@@ -448,7 +478,7 @@
             'magyarany-ermes-text': 'Unser Produkt war der Gewinner der Grossen Goldmedaille auf der Internationalen Landwirtschaftsmesse in den Jahren 2021, 2022 und 2023.',
             'patulin-free-title': 'Patulin-frei',
             'patulin-free-text': 'Strenge Kontrollen garantieren ein Produkt frei von schädlichen Substanzen und sicher.',
-            'gallery-preview-title': 'Ein Einblick in die Produktion',
+            'gallery-preview-title': 'Ein Einblick in die Produktion und unsere Produkte',
             'gallery-preview-button': 'Klicken Sie hier für mehr Fotos',
             'partnerség-title': 'Skalierbarkeit & Langfristige Partnerschaft',
             'partnerség-text': 'Wir sind auf Wachstum vorbereitet. Mit erheblichen Lagerbeständen und flexiblen, erweiterbaren Produktionskapazitäten gewährleisten wir eine zuverlässige Versorgung, die die Grundlage einer stabilen Geschäftsbeziehung bildet. Wir innovieren kontinuierlich, um gemeinsam mit unseren Partnern den Markt zu erobern.',
@@ -474,7 +504,6 @@
             'footer-tax-num': 'Steuernummer: 27319923-2-20',
             'footer-webshop': 'Webshop: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a>',
             'footer-email': 'E-Mail: <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a>',
-            'footer-phone': 'Telefon: <a href="tel:+36302554209" class="text-violet-400 hover:underline">+36 30 255 4209</a>',
             'footer-facebook': '<a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a>'
         }
     };
@@ -500,12 +529,16 @@
             'nav-partnerség': 'a[href="#partnerség"]',
             'nav-kapcsolat': 'a[href="#kapcsolat"]'
         };
-        for(const key in navLinksData) {
-            const element = document.querySelector(navLinksData[key]);
-            if(element && translations[lang][key]) {
-                element.innerText = translations[lang][key];
+        // Update both desktop and mobile nav links
+        document.querySelectorAll('.nav-link').forEach(link => {
+            const href = link.getAttribute('href');
+            for (const key in navLinksData) {
+                if (navLinksData[key] === `a[href="${href}"]` && translations[lang][key]) {
+                    link.innerText = translations[lang][key];
+                    break;
+                }
             }
-        }
+        });
     }
 
     document.addEventListener('DOMContentLoaded', function () {
@@ -603,7 +636,7 @@
         });
         
         const sections = document.querySelectorAll('main section');
-        const navLinks = document.querySelectorAll('.nav-link');
+        const navLinks = document.querySelectorAll('.nav-link'); // This will get all nav links, desktop and mobile
 
         const navObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -645,6 +678,46 @@
             currentBgIndex = (currentBgIndex + 1) % bgImages.length;
             bgImages[currentBgIndex].style.opacity = '1';
         }, 5000);
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenuLinksContainer = document.getElementById('mobile-menu-links');
+        const menuIconOpen = document.getElementById('menu-icon-open');
+        const menuIconClose = document.getElementById('menu-icon-close');
+        const mobileNavLinks = mobileMenuLinksContainer.querySelectorAll('.nav-link');
+
+        if (mobileMenuButton && mobileMenuLinksContainer && menuIconOpen && menuIconClose) {
+            // Set initial ARIA states
+            mobileMenuButton.setAttribute('aria-expanded', 'false');
+            mobileMenuLinksContainer.setAttribute('aria-hidden', 'true');
+
+            mobileMenuButton.addEventListener('click', () => {
+                const isHidden = mobileMenuLinksContainer.classList.toggle('hidden');
+                menuIconOpen.classList.toggle('hidden', !isHidden); 
+                menuIconOpen.classList.toggle('block', isHidden);  
+
+                menuIconClose.classList.toggle('hidden', isHidden); 
+                menuIconClose.classList.toggle('block', !isHidden); 
+                
+                mobileMenuButton.setAttribute('aria-expanded', String(!isHidden));
+                mobileMenuLinksContainer.setAttribute('aria-hidden', String(isHidden));
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (!mobileMenuLinksContainer.classList.contains('hidden')) {
+                        mobileMenuLinksContainer.classList.add('hidden');
+                        menuIconOpen.classList.remove('hidden');
+                        menuIconOpen.classList.add('block');
+                        menuIconClose.classList.add('hidden');
+                        menuIconClose.classList.remove('block');
+                        mobileMenuButton.setAttribute('aria-expanded', 'false');
+                        mobileMenuLinksContainer.setAttribute('aria-hidden', 'true');
+                    }
+                });
+            });
+        }
 
         updateContent('hu'); 
     });
