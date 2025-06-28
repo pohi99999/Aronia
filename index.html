@@ -317,7 +317,7 @@
                 <p id="footer-address">Székhely címe: 8900. Zalaegerszeg Vasút utca 15.</p>
                 <p id="footer-reg-num">Cégjegyzékszám: 20-09-076877</p>
                 <p id="footer-reg-court">Nyilvántartást vezető cégbíróság: Zalaegerszegi Törvényszék Cégbírósága</p>
-                <p id="footer-tax-num">Adószám: 27319923-2-20</p>
+                <p id="footer-tax-num">Közösségi adószám: HU27319923</p>
                 <p id="footer-webshop">Webáruház: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a></p>
                 <p id="footer-email">E-mail: <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a></p>
                 <p id="footer-facebook" class="mt-2"><a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a></p>
@@ -328,6 +328,7 @@
     </footer>
 
     <script>
+    // Translations object for multiple languages
     const translations = {
         'hu': {
             'nav-piac': 'Piac és Potenciál',
@@ -384,7 +385,7 @@
             'footer-address': 'Székhely címe: 8900. Zalaegerszeg Vasút utca 15.',
             'footer-reg-num': 'Cégjegyzékszám: 20-09-076877',
             'footer-reg-court': 'Nyilvántartást vezető cégbíróság: Zalaegerszegi Törvényszék Cégbírósága',
-            'footer-tax-num': 'Adószám: 27319923-2-20',
+            'footer-tax-num': 'Közösségi adószám: HU27319923', // Updated line
             'footer-webshop': 'Webáruház: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a>',
             'footer-email': 'E-mail: <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a>',
             'footer-facebook': '<a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a>',
@@ -445,7 +446,7 @@
             'footer-address': 'Registered office: 8900. Zalaegerszeg Vasút utca 15.',
             'footer-reg-num': 'Company registration number: 20-09-076877',
             'footer-reg-court': 'Registering court: Company Registry of Zalaegerszeg Regional Court',
-            'footer-tax-num': 'Tax number: 27319923-2-20',
+            'footer-tax-num': 'Community Tax Number: HU27319923', // Updated line
             'footer-webshop': 'Webshop: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a>',
             'footer-email': 'E-mail: <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a>',
             'footer-facebook': '<a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a>',
@@ -506,7 +507,7 @@
             'footer-address': 'Sitz der Gesellschaft: 8900. Zalaegerszeg Vasút utca 15.',
             'footer-reg-num': 'Handelsregisternummer: 20-09-076877',
             'footer-reg-court': 'Registergericht: Handelsgericht des Landgerichts Zalaegerszeg',
-            'footer-tax-num': 'Steuernummer: 27319923-2-20',
+            'footer-tax-num': 'Gemeinschaftliche Umsatzsteuer-Identifikationsnummer: HU27319923', // Updated line
             'footer-webshop': 'Webshop: <a href="https://www.blackgoldaronia.hu" target="_blank" class="text-violet-400 hover:underline">https://www.blackgoldaronia.hu</a>',
             'footer-email': 'E-Mail: <a href="mailto:blackgoldaronia@gmail.com" class="text-violet-400 hover:underline">blackgoldaronia@gmail.com</a>',
             'footer-facebook': '<a href="https://www.facebook.com/blackgoldaronia" target="_blank" class="inline-block bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold py-1 px-3 rounded-md transition-colors">Facebook</a>',
@@ -514,20 +515,31 @@
         }
     };
 
-    let currentLang = 'hu';
-    let marketChart; 
+    let currentLang = 'hu'; // Current active language
+    let marketChart; // Variable to hold the Chart.js instance
 
+    /**
+     * Updates the content of the page based on the selected language.
+     * @param {string} lang - The language code ('hu', 'en', 'de').
+     */
     function updateContent(lang) {
         currentLang = lang;
-        document.documentElement.lang = lang; 
+        document.documentElement.lang = lang; // Update the lang attribute of the html tag
 
+        // Iterate over the translations for the selected language and update elements by ID
         for (const key in translations[lang]) {
             const element = document.getElementById(key);
             if (element) {
-                element.innerHTML = translations[lang][key];
+                // For links within the footer, update innerHTML to preserve nested HTML (e.g., <a> tags)
+                if (key.startsWith('footer-')) {
+                    element.innerHTML = translations[lang][key];
+                } else {
+                    element.innerText = translations[lang][key];
+                }
             }
         }
         
+        // Define how navigation links map to translation keys
         const navLinksData = {
             'nav-piac': 'a[href="#piac"]',
             'nav-minoseg': 'a[href="#minoseg"]',
@@ -535,10 +547,11 @@
             'nav-partnerség': 'a[href="#partnerség"]',
             'nav-kapcsolat': 'a[href="#kapcsolat"]'
         };
-        // Update both desktop and mobile nav links
+        // Update both desktop and mobile nav links by iterating through them
         document.querySelectorAll('.nav-link').forEach(link => {
             const href = link.getAttribute('href');
             for (const key in navLinksData) {
+                // Find the correct translation key for the current link
                 if (navLinksData[key] === `a[href="${href}"]` && translations[lang][key]) {
                     link.innerText = translations[lang][key];
                     break;
@@ -547,7 +560,9 @@
         });
     }
 
+    // Event listener for DOM content loaded
     document.addEventListener('DOMContentLoaded', function () {
+        // Initialize Chart.js for the market growth chart
         const marketCtx = document.getElementById('marketChart');
         if (marketCtx) {
             marketChart = new Chart(marketCtx.getContext('2d'), {
@@ -555,25 +570,25 @@
                 data: {
                     labels: ['2023', '2024', '2026', '2028', '2030', '2033'],
                     datasets: [{
-                        label: 'Piac Mérete (Milliárd USD)',
-                        data: [55.8, 60.87, 75.3, 93.1, 115.2, 146.44],
-                        borderColor: '#a78bfa',
-                        backgroundColor: 'rgba(167, 139, 250, 0.1)',
-                        fill: true,
-                        tension: 0.4
+                        label: 'Piac Mérete (Milliárd USD)', // Chart label
+                        data: [55.8, 60.87, 75.3, 93.1, 115.2, 146.44], // Data points
+                        borderColor: '#a78bfa', // Line color
+                        backgroundColor: 'rgba(167, 139, 250, 0.1)', // Fill color under the line
+                        fill: true, // Fill the area under the line
+                        tension: 0.4 // Smoothness of the line
                     }]
                 },
                 options: {
                     responsive: true,
-                    maintainAspectRatio: false,
+                    maintainAspectRatio: false, // Allow chart to resize freely
                     plugins: {
                         legend: {
-                            display: false
+                            display: false // Hide the legend
                         },
                         tooltip: {
-                            backgroundColor: '#374151',
-                            titleFont: { weight: 'bold' },
-                            bodyFont: { size: 14 },
+                            backgroundColor: '#374151', // Tooltip background color
+                            titleFont: { weight: 'bold' }, // Tooltip title font
+                            bodyFont: { size: 14 }, // Tooltip body font
                             callbacks: {
                                 label: function(context) {
                                     let label = context.dataset.label || '';
@@ -581,6 +596,7 @@
                                         label += ': ';
                                     }
                                     if (context.parsed.y !== null) {
+                                        // Format the value as currency in German locale for USD
                                         label += new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'USD' }).format(context.parsed.y) + ' Mrd';
                                     }
                                     return label;
@@ -590,102 +606,113 @@
                     },
                     scales: {
                         y: {
-                            beginAtZero: false,
-                            grid: { color: 'rgba(156, 163, 175, 0.2)' },
+                            beginAtZero: false, // Y-axis does not start at zero
+                            grid: { color: 'rgba(156, 163, 175, 0.2)' }, // Grid line color
                             ticks: {
-                               color: '#d1d5db',
+                               color: '#d1d5db', // Y-axis tick label color
                                callback: function(value) {
-                                    return value + ' Mrd $';
+                                    return value + ' Mrd $'; // Suffix for Y-axis labels
                                }
                             }
                         },
                         x: {
-                            grid: { display: false },
-                            ticks: { color: '#d1d5db' }
+                            grid: { display: false }, // Hide X-axis grid lines
+                            ticks: { color: '#d1d5db' } // X-axis tick label color
                         }
                     }
                 }
             });
         }
 
+        // Counter animation for production capacity numbers
         const counters = document.querySelectorAll('[data-target]');
-        const speed = 400; 
+        const speed = 400; // Animation speed
 
+        /**
+         * Animates a single counter element.
+         * @param {HTMLElement} counter - The counter element to animate.
+         */
         const animateCounter = (counter) => {
-            const target = +counter.getAttribute('data-target');
-            const inc = target / speed;
+            const target = +counter.getAttribute('data-target'); // Get the target number
+            const inc = target / speed; // Increment step
             let count = 0;
 
             const updateCount = () => {
                 if(count < target) {
                     count += inc;
-                    counter.innerText = Math.ceil(count).toLocaleString('hu-HU');
-                    requestAnimationFrame(updateCount);
+                    counter.innerText = Math.ceil(count).toLocaleString('hu-HU'); // Update text, format with Hungarian locale
+                    requestAnimationFrame(updateCount); // Continue animation
                 } else {
-                    counter.innerText = target.toLocaleString('hu-HU');
+                    counter.innerText = target.toLocaleString('hu-HU'); // Set final value
                 }
             };
             updateCount();
         };
 
+        // Intersection Observer to trigger counter animations when they enter viewport
         const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     animateCounter(entry.target);
-                    observer.unobserve(entry.target);
+                    observer.unobserve(entry.target); // Stop observing once animated
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.5 }); // Trigger when 50% of the element is visible
         
         counters.forEach(counter => {
-            observer.observe(counter);
+            observer.observe(counter); // Start observing each counter
         });
         
+        // Intersection Observer for navigation link active state
         const sections = document.querySelectorAll('main section');
-        const navLinks = document.querySelectorAll('.nav-link'); // This will get all nav links, desktop and mobile
+        const navLinks = document.querySelectorAll('.nav-link'); // Select all nav links
 
         const navObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
                     navLinks.forEach(link => {
-                        link.classList.remove('active');
+                        link.classList.remove('active'); // Remove active class from all links
                         if (link.getAttribute('href') === `#${id}`) {
-                            link.classList.add('active');
+                            link.classList.add('active'); // Add active class to the corresponding link
                         }
                     });
                 }
             });
-        }, { rootMargin: '-30% 0px -70% 0px' });
+        }, { rootMargin: '-30% 0px -70% 0px' }); // Adjust rootMargin to fine-tune when active state changes
 
         sections.forEach(section => {
-            navObserver.observe(section);
+            navObserver.observe(section); // Observe each section
         });
 
+        // Language button click event listeners
         const langButtons = document.querySelectorAll('.lang-button');
         langButtons.forEach(button => {
             button.addEventListener('click', () => {
+                // Remove active styling from all language buttons
                 langButtons.forEach(btn => {
                     btn.classList.remove('bg-violet-600', 'hover:bg-violet-700');
                     btn.classList.add('bg-slate-600', 'hover:bg-slate-700');
                 });
 
+                // Add active styling to the clicked button
                 button.classList.remove('bg-slate-600', 'hover:bg-slate-700');
                 button.classList.add('bg-violet-600', 'hover:bg-violet-700');
 
-                updateContent(button.dataset.lang);
+                updateContent(button.dataset.lang); // Update content based on selected language
             });
         });
 
+        // Background image cycling
         const bgImages = document.querySelectorAll('.background-image');
         let currentBgIndex = 0;
         setInterval(() => {
-            bgImages[currentBgIndex].style.opacity = '0';
-            currentBgIndex = (currentBgIndex + 1) % bgImages.length;
-            bgImages[currentBgIndex].style.opacity = '1';
-        }, 5000);
+            bgImages[currentBgIndex].style.opacity = '0'; // Fade out current image
+            currentBgIndex = (currentBgIndex + 1) % bgImages.length; // Move to next image
+            bgImages[currentBgIndex].style.opacity = '1'; // Fade in next image
+        }, 5000); // Change image every 5 seconds
 
-        // Mobile menu toggle
+        // Mobile menu functionality
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenuLinksContainer = document.getElementById('mobile-menu-links');
         const menuIconOpen = document.getElementById('menu-icon-open');
@@ -693,31 +720,36 @@
         const mobileNavLinks = mobileMenuLinksContainer.querySelectorAll('.nav-link');
 
         if (mobileMenuButton && mobileMenuLinksContainer && menuIconOpen && menuIconClose) {
-            // Set initial ARIA states
+            // Set initial ARIA states for accessibility
             mobileMenuButton.setAttribute('aria-expanded', 'false');
             mobileMenuLinksContainer.setAttribute('aria-hidden', 'true');
 
+            // Toggle mobile menu visibility on button click
             mobileMenuButton.addEventListener('click', () => {
                 const isHidden = mobileMenuLinksContainer.classList.toggle('hidden');
+                // Toggle visibility of open/close icons
                 menuIconOpen.classList.toggle('hidden', !isHidden); 
                 menuIconOpen.classList.toggle('block', isHidden);  
 
                 menuIconClose.classList.toggle('hidden', isHidden); 
                 menuIconClose.classList.toggle('block', !isHidden); 
                 
+                // Update ARIA attributes
                 mobileMenuButton.setAttribute('aria-expanded', String(!isHidden));
                 mobileMenuLinksContainer.setAttribute('aria-hidden', String(isHidden));
             });
 
-            // Close mobile menu when a link is clicked
+            // Close mobile menu when a link inside it is clicked
             mobileNavLinks.forEach(link => {
                 link.addEventListener('click', () => {
                     if (!mobileMenuLinksContainer.classList.contains('hidden')) {
                         mobileMenuLinksContainer.classList.add('hidden');
+                        // Restore open icon and hide close icon
                         menuIconOpen.classList.remove('hidden');
                         menuIconOpen.classList.add('block');
                         menuIconClose.classList.add('hidden');
                         menuIconClose.classList.remove('block');
+                        // Reset ARIA attributes
                         mobileMenuButton.setAttribute('aria-expanded', 'false');
                         mobileMenuLinksContainer.setAttribute('aria-hidden', 'true');
                     }
@@ -725,6 +757,7 @@
             });
         }
 
+        // Initialize content with Hungarian language on page load
         updateContent('hu'); 
     });
     </script>
